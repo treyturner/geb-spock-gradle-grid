@@ -1,5 +1,7 @@
 package info.treyturner.qa.util
 
+import geb.js.JavascriptInterface
+import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.chrome.ChromeDriver
@@ -12,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver
 @Slf4j
 class WebDriver {
 
-    static def configureDriver(String browserLocation, String browserType, String platform) {
+    static Closure configureDriver(String browserLocation, String browserType, String platform) {
         Closure driver
         switch (browserLocation) {
             case 'local':
@@ -89,5 +91,25 @@ class WebDriver {
         }
         assert driver, "Couldn't configure WebDriver (location:'$browserLocation', type:'$browserType', platform:'$platform')"
         driver
+    }
+
+    static LinkedHashMap getComputedStyle(JavascriptInterface js, Navigator navigator) {
+        assert navigator.size() == 1, "WebDriver.getComputedStyle() can only be called on Navigators with size() == 1"
+        def map = [:],
+            props
+        if (navigator.@id)
+            props = js."window.getComputedStyle(window.document.getElementById('${navigator.@id}'))"
+        else {
+            log.warn "Fetching computed style via class names; specific results are not guaranteed."
+            props = js."window.getComputedStyle(window.document.getElementsByClassName('${navigator.classes().join("','")}'))"
+        }
+        props.each { map[it] = navigator.css(it) }
+        map
+    }
+
+    static String getElementTextNonRecursively(element) {
+        element.children().inject(element.text()) { text, child ->
+            text - child.text()
+        }.trim()
     }
 }

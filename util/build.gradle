@@ -4,34 +4,17 @@ ext {
 
 dependencies {
 
-    //database drivers
-    compile 'org.postgresql:postgresql:9.4.1207.jre7'
-
-    //aws s3 sdk
-    compile 'com.amazonaws:aws-java-sdk-s3:1.10.66'
-
-    //aws dynamo db sdk
-    compile 'com.amazonaws:aws-java-sdk-dynamodb:1.10.66'
-
-    //yaml support
-    compile 'org.yaml:snakeyaml:1.17'
-
     //selenium
     compile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
     compile "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
     compile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
     compile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
 
-    //breaks with official phantomjs
-//    compile ('com.github.detro.ghostdriver:phantomjsdriver:1.1.0') {
-//        transitive = false
-//    }
+    //geb
+    compile 'org.gebish:geb-spock:0.13.1'
 
     //working patched phantomjs
     compile ('com.codeborne:phantomjsdriver:1.2.1') {
         transitive = false
     }
-
-    //geb
-    compile 'org.gebish:geb-spock:0.13.1'
 }
