@@ -1,0 +1,46 @@
+allprojects {
+    apply plugin: 'idea'
+
+    group = 'info.treyturner.qa'
+
+    repositories {
+        mavenLocal()
+	    mavenCentral()
+	    jcenter()
+    }
+
+    tasks.withType(Test).all {
+        testLogging {
+            events "started", "skipped", "passed", "failed", "standardOut"
+        }
+        outputs.upToDateWhen { false }
+        maxParallelForks(Math.max(2, Runtime.runtime.availableProcessors()))
+    }
+}
+
+subprojects {
+    apply plugin: 'groovy'
+
+    dependencies {
+        //groovy
+        compile 'org.codehaus.groovy:groovy-all:2.4.6'
+
+        //spock
+        compile 'org.spockframework:spock-core:1.0-groovy-2.4'
+
+        //spock reports
+        testCompile('com.athaydes:spock-reports:1.2.10') {
+            transitive = false // this avoids affecting your version of Groovy/Spock
+        }
+
+        //logging via slf4j & logback
+        compile 'org.slf4j:slf4j-api:1.7.20'
+        compile 'ch.qos.logback:logback-core:1.1.7'
+        compile 'ch.qos.logback:logback-classic:1.1.7'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
+
