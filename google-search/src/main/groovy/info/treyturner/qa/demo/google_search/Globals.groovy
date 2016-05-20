@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.google
+package info.treyturner.qa.demo.google_search
 
 import info.treyturner.qa.demo.util.Util
 

@@ -1,4 +1,4 @@
-import info.treyturner.qa.demo.google.Globals
+import info.treyturner.qa.demo.google_search.Globals
 import info.treyturner.qa.demo.util.WebDriver
 
 waiting {

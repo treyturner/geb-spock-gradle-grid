@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.google.module
+package info.treyturner.qa.demo.google_search.module
 
 import geb.Module
 

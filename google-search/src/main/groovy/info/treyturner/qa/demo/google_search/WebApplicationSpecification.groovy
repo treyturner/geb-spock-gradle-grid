@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.google
+package info.treyturner.qa.demo.google_search
 
 import org.slf4j.LoggerFactory
 import spock.lang.Shared
