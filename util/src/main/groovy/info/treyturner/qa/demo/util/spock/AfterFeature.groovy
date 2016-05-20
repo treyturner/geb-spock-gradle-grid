@@ -1,4 +1,4 @@
-package info.treyturner.qa.util.spock
+package info.treyturner.qa.demo.util.spock
 
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention

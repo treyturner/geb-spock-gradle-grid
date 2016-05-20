@@ -1,4 +1,4 @@
-package info.treyturner.qa.util
+package info.treyturner.qa.demo.util
 
 import geb.js.JavascriptInterface
 import geb.navigator.Navigator
