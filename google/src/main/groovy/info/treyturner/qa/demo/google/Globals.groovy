@@ -1,6 +1,6 @@
-package info.treyturner.qa.demo
+package info.treyturner.qa.demo.google
 
-import info.treyturner.qa.util.Util
+import info.treyturner.qa.demo.util.Util
 
 class Globals {
 

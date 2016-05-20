@@ -1,7 +1,7 @@
 allprojects {
     apply plugin: 'idea'
 
-    group = 'info.treyturner.qa'
+    group = 'info.treyturner.qa.demo'
 
     repositories {
         mavenLocal()

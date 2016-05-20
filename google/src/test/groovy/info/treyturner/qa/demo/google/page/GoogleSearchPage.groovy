@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.page
+package info.treyturner.qa.demo.google.page
 
 import geb.Page
 

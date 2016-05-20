@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.module
+package info.treyturner.qa.demo.google.module
 
 import geb.Module
 

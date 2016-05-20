@@ -1,5 +1,5 @@
-import info.treyturner.qa.demo.Globals
-import info.treyturner.qa.util.WebDriver
+import info.treyturner.qa.demo.google.Globals
+import info.treyturner.qa.demo.util.WebDriver
 
 waiting {
     //default (ie. wait:true)
