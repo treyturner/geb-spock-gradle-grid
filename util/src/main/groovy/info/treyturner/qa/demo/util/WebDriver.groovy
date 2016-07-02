@@ -23,7 +23,7 @@ class WebDriver {
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.21"
+                        def chromeDriverVersion = "2.22"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':
