@@ -32,7 +32,7 @@ You have a few choices on how to run tests.
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
 [docker-selenium]: https://github.com/SeleniumHQ/docker-selenium
-[WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy
+[WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L17
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
 [Globals.groovy]: google-search/src/main/groovy/info/treyturner/qa/demo/google_search/Globals.groovy
