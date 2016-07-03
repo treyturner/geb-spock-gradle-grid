@@ -29,7 +29,7 @@ subprojects {
         compile 'org.spockframework:spock-core:1.0-groovy-2.4'
 
         //spock reports
-        testCompile('com.athaydes:spock-reports:1.2.10') {
+        testCompile('com.athaydes:spock-reports:1.2.12') {
             transitive = false // this avoids affecting your version of Groovy/Spock
         }
 
@@ -41,6 +41,6 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.13'
+    gradleVersion = '2.14'
 }
 
