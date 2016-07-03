@@ -20,8 +20,8 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         given: "the user is at the Google search page"
         at GoogleSearchPage
 
-        when: "the user types 'Civitas' into the search field"
-        searchBox = 'Civitas'
+        when: "the user types 'The White House' into the search field"
+        searchBox = 'The White House'
 
         and: "the user clicks the search button"
         searchButton.click()
@@ -29,18 +29,19 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         then: "the user is brought to the search results page"
         at GoogleResultsPage
 
-        and: "some number of results are returned"
+        and: "some number of search results are returned"
         results.size() > 1
     }
 
-    def "should return civitaslearning.com as the first result for a search for 'civitas'"() {
+    def "should return whitehouse.gov as the first result for a search for 'The White House'"() {
 
         given: "the user is at the former search result page"
         at GoogleResultsPage
 
         expect: "the first result to be for civitaslearning.com"
-        results[0].name.text() == "Civitas Learning: Home"
-        results[0].link.@href == "https://www.civitaslearning.com/"
-        results[0].description.text() == "By building a community of forward-thinking higher education institutions, Civitas Learning brings together the best of education technology, design thinking, ..."
+        results[0].name.text() == "The White House | whitehouse.gov"
+        results[0].link.@href == "https://www.whitehouse.gov/"
+        results[0].description.text() == "Official White House site presents issue positions, news, Cabinet, " +
+                "appointments, offices and major speeches. Includes biography, video tour and photo essays."
     }
 }
