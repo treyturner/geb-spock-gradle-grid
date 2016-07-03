@@ -38,7 +38,7 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         given: "the user is at the former search result page"
         at GoogleResultsPage
 
-        expect: "the first result to be for civitaslearning.com"
+        expect: "the first result to be for whitehouse.gov"
         results[0].name.text() == "The White House | whitehouse.gov"
         results[0].link.@href == "https://www.whitehouse.gov/"
         results[0].description.text() == "Official White House site presents issue positions, news, Cabinet, " +
