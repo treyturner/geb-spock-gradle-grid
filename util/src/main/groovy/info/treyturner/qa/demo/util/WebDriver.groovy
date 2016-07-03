@@ -14,6 +14,8 @@ import org.openqa.selenium.remote.RemoteWebDriver
 @Slf4j
 class WebDriver {
 
+    static String gridUri = "http://your.grid.ip.address:4444/wd/hub";
+
     static Closure configureDriver(String browserLocation, String browserType, String platform) {
         Closure driver
         switch (browserLocation) {
@@ -84,7 +86,7 @@ class WebDriver {
                     }
                     new RemoteWebDriver(
                             //You must setup your own grid and configure the IP or domain name here
-                            new URL("http://your.grid.ip.address:4444/wd/hub"), capabilities
+                            new URL(gridUri), capabilities
                     )
                 }
                 break

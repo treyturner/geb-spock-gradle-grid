@@ -6,7 +6,7 @@ class Globals {
 
     //Might need to change these for local IDEA runs
     final static browserLocation = System.getProperty('browserLocation', 'local')
-    final static browserType = System.getProperty('geb.local.browser', 'chrome')
+    final static browserType = System.getProperty('geb.local.browser', 'firefox')
 
     final static reportsDir = 'build/reports'
     final static platform = Util.getPlatform()
