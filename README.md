@@ -3,7 +3,7 @@
 Functional web testing using Geb, Spock, and Gradle. Browser tests execute locally or (optionally) against a Selenium Grid.
 
 ## Brief
-This is a multi-module Gradle "archetype" project that canserve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience.
+This is a multi-module Gradle "archetype" project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience.
 
 ## Requirements
 - Git
