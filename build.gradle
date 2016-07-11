@@ -10,11 +10,16 @@ allprojects {
     }
 
     tasks.withType(Test).all {
-        testLogging {
+        testLogging { // Log these test events to console
             events "started", "skipped", "passed", "failed", "standardOut"
         }
-        outputs.upToDateWhen { false }
-        maxParallelForks(Math.max(2, Runtime.runtime.availableProcessors()))
+        outputs.upToDateWhen { false } // Always run tests
+
+        //Parallel execution by is disabled by default. Uncomment one of the following to enable:
+        //Some OS's and CPUs report twice as many cores due to HyperThreading, so we use:
+//        maxParallelForks(Runtime.runtime.availableProcessors().intdiv(2))
+        //Others report the correct number of physical cores, so we simply use:
+//        maxParallelForks(Runtime.runtime.availableProcessors())
     }
 }
 
