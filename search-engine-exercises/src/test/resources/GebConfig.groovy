@@ -1,4 +1,4 @@
-import info.treyturner.qa.demo.google_search.Globals
+import info.treyturner.qa.demo.search_engine_exercises.Globals
 import info.treyturner.qa.demo.util.WebDriver
 
 waiting {
@@ -24,7 +24,7 @@ waiting {
             retryInterval = 0.5
         }
         coffee {
-            timeout = 120
+            timeout = 180
             retryInterval = 1
         }
     }

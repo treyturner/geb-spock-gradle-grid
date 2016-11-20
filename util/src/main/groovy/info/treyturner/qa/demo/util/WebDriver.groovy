@@ -14,41 +14,91 @@ import org.openqa.selenium.remote.RemoteWebDriver
 @Slf4j
 class WebDriver {
 
+    /**
+     * This is where you can optionally supply the domain name or IP address of your
+     * Selenium Grid hub for remote test execution. For more info on easily setting
+     * up a scalable grid, visit https://github.com/SeleniumHQ/docker-selenium
+     */
     static String gridUri = "http://your.grid.ip.address:4444/wd/hub";
 
+    /**
+     * This method, generally called from within each module's GebConfig.groovy,
+     * configures a driver Closure that Geb needs to start a Selenium session.
+     * It sets whether the session is local or remote, which browser to use,
+     * and other browser- and platform-specific information such as driver paths.
+     *
+     * @param browserLocation   'local' or 'remote'
+     * @param browserType       'firefox' and 'chrome' are supported for local/remote, 'phantomjs' is supported for local
+     * @param platform          resolved by Util.getPlatform()
+     * @return                  a driver Closure that Geb can use to configure the Selenium session
+     */
     static Closure configureDriver(String browserLocation, String browserType, String platform) {
         Closure driver
+        String driverPath = "../util/drivers"
         switch (browserLocation) {
             case 'local':
                 switch (browserType) {
                     case 'firefox':
+                        def geckoDriverVersion = "0.11.1"
+                        switch (platform) {
+                            case 'windows32':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_win32.exe")
+                                break
+                            case 'windows64':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_win64.exe")
+                                break
+                            case 'osx':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_macos")
+                                break
+                            case 'linux32':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_linux32")
+                                break
+                            case 'linux64':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_linux64")
+                                break
+                        }
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.22"
+                        def chromeDriverVersion = "2.25"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':
-                                System.setProperty("webdriver.chrome.driver", "../util/drivers/chrome/$chromeDriverVersion/chromedriver_win32.exe")
+                                System.setProperty("webdriver.chrome.driver",
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_win32.exe")
                                 break
                             case 'osx':
-                                System.setProperty("webdriver.chrome.driver", "../util/drivers/chrome/$chromeDriverVersion/chromedriver_mac32")
+                                System.setProperty("webdriver.chrome.driver",
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_mac64")
                                 break
                             case 'linux32':
-                                System.setProperty("webdriver.chrome.driver", "../util/drivers/chrome/$chromeDriverVersion/chromedriver_linux32")
+                                System.setProperty("webdriver.chrome.driver",
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux32")
                                 break
                             case 'linux64':
-                                System.setProperty("webdriver.chrome.driver", "../util/drivers/chrome/$chromeDriverVersion/chromedriver_linux64")
+                                System.setProperty("webdriver.chrome.driver",
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux64")
                                 break
                         }
                         driver = { new ChromeDriver() }
                         break
                     case 'phantomjs':
-                        def driverPath
+                        /**
+                         * PhantomJS was only tested on OSX, and never worked very well. If you want to
+                         * try, you'll need to acquire binaries for your OS, set the paths appropriately,
+                         * and quite possibly set some other driver options not covered here.
+                         */
                         switch (platform) {
                             case 'windows32':
+                                driverPath = "$driverPath/phantomjs/phantomjs_win32.exe"
+                                break
                             case 'windows64':
-                                driverPath = '/some/windows/path'
+                                driverPath = "$driverPath/phantomjs/phantomjs_win64.exe"
                                 break
                             case 'osx':
                                 driverPath = '/usr/local/bin/phantomjs'
@@ -85,7 +135,6 @@ class WebDriver {
                             assert ['firefox', 'chrome'].contains(browserType), "Only Firefox and Chrome are currently supported for remote WebDriver sessions."
                     }
                     new RemoteWebDriver(
-                            //You must setup your own grid and configure the IP or domain name here
                             new URL(gridUri), capabilities
                     )
                 }
@@ -95,6 +144,14 @@ class WebDriver {
         driver
     }
 
+    /**
+     * Returns a LinkedHashMap of all CSS properties and their
+     * respective values for a given Navigator whose size() == 1
+     *
+     * @param   js          the JavaScript interface to the running Selenium session
+     * @param   navigator   the navigator (with size() == 1) to inspect
+     * @return              a LinkedHashMap of all CSS properties for the object and their respective values
+     */
     static LinkedHashMap getComputedStyle(JavascriptInterface js, Navigator navigator) {
         assert navigator.size() == 1, "WebDriver.getComputedStyle() can only be called on Navigators with size() == 1"
         def map = [:],
@@ -109,6 +166,12 @@ class WebDriver {
         map
     }
 
+    /**
+     * Calling .text() on an element typically returns the text from any elements nested underneath
+     * as well. This method gives easy access to the text contained in just the targeted element.
+     * @param element   the web element containing the text to be extracted
+     * @return          the text from only that element, omitting text in any children elements
+     */
     static String getElementTextNonRecursively(element) {
         element.children().inject(element.text()) { text, child ->
             text - child.text()

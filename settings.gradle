@@ -1,2 +1,2 @@
-include 'google-search'
+include 'search-engine-exercises'
 include 'util'

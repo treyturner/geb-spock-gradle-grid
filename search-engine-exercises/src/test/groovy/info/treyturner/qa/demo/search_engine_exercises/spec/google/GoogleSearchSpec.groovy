@@ -1,8 +1,8 @@
-package info.treyturner.qa.demo.google_search.spec
+package info.treyturner.qa.demo.search_engine_exercises.spec.google
 
-import info.treyturner.qa.demo.google_search.WebApplicationSpecification
-import info.treyturner.qa.demo.google_search.page.GoogleResultsPage
-import info.treyturner.qa.demo.google_search.page.GoogleSearchPage
+import info.treyturner.qa.demo.search_engine_exercises.WebApplicationSpecification
+import info.treyturner.qa.demo.search_engine_exercises.page.google.GoogleResultsPage
+import info.treyturner.qa.demo.search_engine_exercises.page.google.GoogleSearchPage
 
 class GoogleSearchSpec extends WebApplicationSpecification {
 
@@ -41,7 +41,6 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         expect: "the first result to be for whitehouse.gov"
         results[0].name.text() == "The White House | whitehouse.gov"
         results[0].link.@href == "https://www.whitehouse.gov/"
-        results[0].description.text() == "Official White House site presents issue positions, news, Cabinet, " +
-                "appointments, offices and major speeches. Includes biography, video tour and photo essays."
+        results[0].description.text() == "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most ..."
     }
 }

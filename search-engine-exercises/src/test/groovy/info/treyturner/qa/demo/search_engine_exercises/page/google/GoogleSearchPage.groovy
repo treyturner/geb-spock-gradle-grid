@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.google_search.page
+package info.treyturner.qa.demo.search_engine_exercises.page.google
 
 import geb.Page
 

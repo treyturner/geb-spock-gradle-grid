@@ -1,5 +1,5 @@
 ext {
-    seleniumVersion = "2.53.0"
+    seleniumVersion = "3.0.1"
 }
 
 dependencies {
@@ -11,10 +11,12 @@ dependencies {
     compile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
 
     //geb
-    compile 'org.gebish:geb-spock:0.13.1'
+    compile 'org.gebish:geb-spock:1.0'
 
     //working patched phantomjs
     compile ('com.codeborne:phantomjsdriver:1.2.1') {
         transitive = false
     }
 }
+
+//TODO: Write tasks to bootstrap browser drivers based on a version string and the local platform

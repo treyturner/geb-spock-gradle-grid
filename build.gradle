@@ -15,7 +15,9 @@ allprojects {
         }
         outputs.upToDateWhen { false } // Always run tests
 
-        //Parallel execution by is disabled by default. Uncomment one of the following to enable:
+        /**
+         * Parallel execution by is disabled by default. Uncomment one of the following to enable:
+         */
         //Some OS's and CPUs report twice as many cores due to HyperThreading, so we use:
 //        maxParallelForks(Runtime.runtime.availableProcessors().intdiv(2))
         //Others report the correct number of physical cores, so we simply use:
@@ -28,24 +30,27 @@ subprojects {
 
     dependencies {
         //groovy
-        compile 'org.codehaus.groovy:groovy-all:2.4.6'
+        compile 'org.codehaus.groovy:groovy-all:2.4.7'
 
         //spock
-        compile 'org.spockframework:spock-core:1.0-groovy-2.4'
+        compile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-3'
 
         //spock reports
-        testCompile('com.athaydes:spock-reports:1.2.12') {
+        testCompile('com.athaydes:spock-reports:1.2.13') {
             transitive = false // this avoids affecting your version of Groovy/Spock
         }
 
         //logging via slf4j & logback
-        compile 'org.slf4j:slf4j-api:1.7.20'
+        compile 'org.slf4j:slf4j-api:1.7.21'
         compile 'ch.qos.logback:logback-core:1.1.7'
         compile 'ch.qos.logback:logback-classic:1.1.7'
     }
 }
 
+/**
+ * Set the desired version of Gradle here, then run './gradlew wrapper' on OSX/Linux or
+ * 'gradlew.bat wrapper' on Windows to upgrade to that version.
+ */
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14'
+    gradleVersion = '3.2'
 }
-

@@ -3,6 +3,6 @@ dependencies {
     compile project(':util')
 
     //geb
-    compile 'org.gebish:geb-spock:0.13.1'
+    compile 'org.gebish:geb-spock:1.0'
 }
 

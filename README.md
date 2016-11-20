@@ -1,9 +1,26 @@
 # geb-spock-gradle-grid
 
-Functional web testing using Geb, Spock, and Gradle. Browser tests execute locally or (optionally) against a Selenium Grid.
+Functional web testing using [Geb], [Spock], and [Gradle]. Browser tests execute locally or (optionally) against a [Selenium] [Grid].
 
 ## Brief
-This is a multi-module Gradle "archetype" project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience.
+This is a multi-module [Gradle] archetype project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience. Various automation examples and design patterns will be added over time.
+
+## Currently Implemented Versions
+
+[Geb] 1.0
+[Spock] 1.1
+[Gradle] 3.2
+[Selenium] 3.0.1
+[ChromeDriver] 2.25
+[GeckoDriver] 0.11.1
+
+[Geb]: http://gebish.org
+[Spock]: http://spockframework.org
+[Gradle]: https://gradle.org/
+[Selenium]: http://docs.seleniumhq.org/
+[Grid]: https://github.com/SeleniumHQ/docker-selenium
+[ChromeDriver]: https://sites.google.com/a/chromium.org/chromedriver/
+[GeckoDriver]: https://github.com/mozilla/geckodriver
 
 ## Requirements
 - Git
@@ -23,7 +40,7 @@ This is a multi-module Gradle "archetype" project that can serve as a viable str
 ## Configuration
 You have a few choices on how to run tests.
 - Browser Type
-  - Firefox (Usually easiest)
+  - Firefox
   - Chrome
 - Browser Location
   - Local
@@ -31,23 +48,24 @@ You have a few choices on how to run tests.
     - For continuous integration. Grid setup is out of scope for this document, see [docker-selenium]
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
+[GeckDriver]: https://github.com/mozilla/geckodriver/releases
 [docker-selenium]: https://github.com/SeleniumHQ/docker-selenium
-[WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L17
+[WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
-[Globals.groovy]: google-search/src/main/groovy/info/treyturner/qa/demo/google_search/Globals.groovy
+[Globals.groovy]: search-engine-exercises/src/main/groovy/info/treyturner/qa/demo/search_engine_exercises/Globals.groovy
 
 ## IntelliJ IDEA
 IDEA works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
 - It helps if you check 'auto-import' so your changes to Gradle files are immediately refreshed
-- I also like to check 'automatically create content roots'
+- I also check 'automatically create content roots' for when I add a new modules to `settings.gradle`.
 
 ## Demos
 
 ### Google Search Demo
-There is currently only a very basic example project, the [Google Search Demo]. It illustrates:
+There is currently only a very basic Google search in the [Search Engine Exercises] module. It illustrates:
 
-[Google Search Demo]: google-search
+[Google Search Demo]: search-engine-exercises
 
 1. How to write a basic spec
 2. How to write a basic page object
@@ -60,4 +78,4 @@ It's easy to add a new module to start testing a new application.
 2. Copy a [build.gradle]  into the newly created `your-module/`
 
 [settings.gradle]: settings.gradle
-[build.gradle]: google-search/build.gradle
+[build.gradle]: search-engine-exercises/build.gradle
