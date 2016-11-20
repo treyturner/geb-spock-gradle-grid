@@ -5,14 +5,16 @@ Functional web testing using [Geb], [Spock], and [Gradle]. Browser tests execute
 ## Brief
 This is a multi-module [Gradle] archetype project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience. Various automation examples and design patterns will be added over time.
 
-## Currently Implemented Versions
+## Currently Implemented Technology Versions
 
-[Geb] 1.0
-[Spock] 1.1
-[Gradle] 3.2
-[Selenium] 3.0.1
-[ChromeDriver] 2.25
-[GeckoDriver] 0.11.1
+Software       |Version
+|---	       |---	
+[Geb] 	       |1.0   	
+[Spock]	       |1.1   	
+[Gradle]       |3.2	
+[Selenium]     |3.0.1   	
+[ChromeDriver] |2.25
+[GeckoDriver]  |0.11.1
 
 [Geb]: http://gebish.org
 [Spock]: http://spockframework.org
@@ -48,7 +50,6 @@ You have a few choices on how to run tests.
     - For continuous integration. Grid setup is out of scope for this document, see [docker-selenium]
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
-[GeckDriver]: https://github.com/mozilla/geckodriver/releases
 [docker-selenium]: https://github.com/SeleniumHQ/docker-selenium
 [WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
 
