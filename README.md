@@ -1,6 +1,6 @@
 # geb-spock-gradle-grid
 
-This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable BDD specifications run [Selenium] sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
+This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable BDD specifications, written in [Java] or [Groovy], run [Selenium] sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
 
 Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. Integration with IntelliJ [IDEA] is seamless for easy step debugging and testing pipeline automation entrypoints.
 
@@ -12,6 +12,7 @@ The project is intended for educational and demonstration purposes, and can serv
 
 Software       |Version |Description
 |---	       |---	    |---
+[Groovy]       |2.4.7   |High level Java scripting language
 [Geb] 	       |1.0   	|High level WebDriver API
 [Spock]	       |1.1   	|[BDD] test/specification runner
 [Gradle]       |3.2	    |Build tool & dependency management
@@ -21,6 +22,7 @@ Software       |Version |Description
 [slf4j]        |1.7.21  |Logging API
 [logback]      |1.1.7   |Logging implementation
 
+[Groovy]: http://groovy-lang.org/
 [Geb]: http://gebish.org
 [Spock]: http://spockframework.org
 [BDD]: https://en.wikipedia.org/wiki/Behavior-driven_development
@@ -35,11 +37,11 @@ Software       |Version |Description
 
 ## Requirements
 - [Git]
-- [Java Development Kit] 7+
+- [Java] Development Kit 7+
 - A browser ([Firefox] or [Chrome])
 
 [Git]: https://git-scm.com/
-[Java Development Kit]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Firefox]: https://www.mozilla.org/en-US/firefox/new
 [Chrome]: https://www.google.com/chrome/browser/desktop
 
