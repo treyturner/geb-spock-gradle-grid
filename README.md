@@ -21,14 +21,14 @@ Software       |Version
 
 [Geb]: http://gebish.org
 [Spock]: http://spockframework.org
-[Gradle]: https://gradle.org/
-[Selenium]: http://docs.seleniumhq.org/
+[Gradle]: https://gradle.org
+[Selenium]: http://docs.seleniumhq.org
 [Grid]: https://github.com/SeleniumHQ/docker-selenium
-[ChromeDriver]: https://sites.google.com/a/chromium.org/chromedriver/
+[ChromeDriver]: https://sites.google.com/a/chromium.org/chromedriver
 [GeckoDriver]: https://github.com/mozilla/geckodriver
-[slf4j]: http://www.slf4j.org/
-[logback]: http://logback.qos.ch/
-[IDEA]: https://www.jetbrains.com/idea/
+[slf4j]: http://www.slf4j.org
+[logback]: http://logback.qos.ch
+[IDEA]: https://www.jetbrains.com/idea
 
 ## Requirements
 - Git
@@ -44,7 +44,9 @@ Software       |Version
 3. View the results.
   - HTML reports are written to `build/reports/tests`
   - JUnit XML results (for [Jenkins] consumption) are written to `build/test-results/tests`
-  - Logs are written to `build/logs`
+  - Console text logs are written to `build/logs`
+
+[Jenkins]: https://jenkins.io
 
 ## Configuration
 You have a few choices on how to run tests.
