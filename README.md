@@ -62,7 +62,7 @@ You have a few choices on how to run tests.
 [WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
-[Globals.groovy]: search-engine-exercises/src/main/groovy/info/treyturner/qa/demo/search_engine_exercises/Globals.groovy
+[Globals.groovy]: search-engine-exercises/src/main/groovy/info/treyturner/qa/demo/search_engine_exercises/Globals.groovy#L8
 
 ## IntelliJ IDEA
 [IDEA] works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
