@@ -38,11 +38,12 @@ Software       |Version
 ## Setup & Run
 1. Clone the repo.
   - `git clone git@github.com:treyturner/geb-spock-gradle-grid.git`
-2. Run tests.
+2. Run specs.
   - On Windows: `gradlew.bat test`
   - On Mac / Linux: `./gradlew test`
 3. View the results.
   - HTML reports are written to `build/reports/tests`
+  - JUnit XML results (for [Jenkins] consumption) are written to `build/test-results/tests`
   - Logs are written to `build/logs`
 
 ## Configuration
