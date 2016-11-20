@@ -52,7 +52,7 @@ You have a few choices on how to run tests.
 - Browser Location
   - Local
   - Remote (Headless)
-    - For continuous integration. Docker is ideal for setting up your own [grid].
+    - For continuous integration. Docker is ideal for setting up your own [grid]
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
 [WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
@@ -63,7 +63,7 @@ Based on your choices to the above, edit the [Globals.groovy] file for the modul
 ## IntelliJ IDEA
 IDEA works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
 - It helps if you check 'auto-import' so your changes to Gradle files are immediately refreshed
-- I also check 'automatically create content roots' for when I add a new modules to `settings.gradle`.
+- I also check 'automatically create content roots' for when I add a new modules to `settings.gradle`
 
 ## Demos
 
