@@ -2,7 +2,7 @@
 
 This multi-module [Gradle] project integrates [Geb] and [Spock] to create a web automation framework. The executable BDD specifications run [Selenium] sessions locally or (optionally) against a scalable [grid].
 
-Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. Integration with []IntelliJ IDEA] is seamless for easy step debugging and testing pipeline automation entrypoints.
+Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. Integration with IntelliJ [IDEA] is seamless for easy step debugging and testing pipeline automation entrypoints.
 
 The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional test suites or automation scripts across multiple web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the included technologies up to date with modern browser standards.
 
@@ -28,6 +28,7 @@ Software       |Version
 [GeckoDriver]: https://github.com/mozilla/geckodriver
 [slf4j]: http://www.slf4j.org/
 [logback]: http://logback.qos.ch/
+[IDEA]: https://www.jetbrains.com/idea/
 
 ## Requirements
 - Git
@@ -61,7 +62,7 @@ Based on your choices to the above, edit the [Globals.groovy] file for the modul
 [Globals.groovy]: search-engine-exercises/src/main/groovy/info/treyturner/qa/demo/search_engine_exercises/Globals.groovy
 
 ## IntelliJ IDEA
-IDEA works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
+[IDEA] works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
 - It helps if you check 'auto-import' so your changes to Gradle files are immediately refreshed
 - I also check 'automatically create content roots' for when I add a new modules to `settings.gradle`
 
