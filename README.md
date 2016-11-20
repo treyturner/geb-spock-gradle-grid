@@ -1,6 +1,6 @@
 # geb-spock-gradle-grid
 
-Functional web testing using [Geb], [Spock], and [Gradle]. Browser tests execute locally or (optionally) against a [Selenium] [Grid].
+Functional web testing using [Geb], [Spock], and [Gradle]. The [Selenium] executable BDD specifications run locally or (optionally) against a scalable [Grid].
 
 ## Brief
 This is a multi-module [Gradle] archetype project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience. Various automation examples and design patterns will be added over time.
@@ -47,10 +47,9 @@ You have a few choices on how to run tests.
 - Browser Location
   - Local
   - Remote (Headless)
-    - For continuous integration. Grid setup is out of scope for this document, see [docker-selenium]
+    - For continuous integration. Docker is ideal for setting up your own [grid].
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
-[docker-selenium]: https://github.com/SeleniumHQ/docker-selenium
 [WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
@@ -66,7 +65,7 @@ IDEA works great with Gradle; just 'Import project from existing sources' and se
 ### Google Search Demo
 There is currently only a very basic Google search in the [Search Engine Exercises] module. It illustrates:
 
-[Google Search Demo]: search-engine-exercises
+[Search Engine Exercises]: search-engine-exercises
 
 1. How to write a basic spec
 2. How to write a basic page object
