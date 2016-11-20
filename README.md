@@ -1,9 +1,10 @@
 # geb-spock-gradle-grid
 
-Functional web testing using [Geb], [Spock], and [Gradle]. The [Selenium] executable BDD specifications run locally or (optionally) against a scalable [Grid].
+This multi-module [Gradle] project integrates [Geb] and [Spock] to create a web automation framework. The executable BDD specifications run [Selenium] sessions locally or (optionally) against a scalable [grid].
 
-## Brief
-This is a multi-module [Gradle] archetype project that can serve as a viable structure to develop functional test suites across multiple web applications. A shared utility package is available for convenience. Various automation examples and design patterns will be added over time.
+Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. Integration with []IntelliJ IDEA] is seamless for easy step debugging and testing pipeline automation entrypoints.
+
+The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional test suites or automation scripts across multiple web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the included technologies up to date with modern browser standards.
 
 ## Currently Implemented Technology Versions
 
@@ -15,6 +16,8 @@ Software       |Version
 [Selenium]     |3.0.1   	
 [ChromeDriver] |2.25
 [GeckoDriver]  |0.11.1
+[slf4j]        |1.7.21
+[logback]      |1.1.7
 
 [Geb]: http://gebish.org
 [Spock]: http://spockframework.org
@@ -23,6 +26,8 @@ Software       |Version
 [Grid]: https://github.com/SeleniumHQ/docker-selenium
 [ChromeDriver]: https://sites.google.com/a/chromium.org/chromedriver/
 [GeckoDriver]: https://github.com/mozilla/geckodriver
+[slf4j]: http://www.slf4j.org/
+[logback]: http://logback.qos.ch/
 
 ## Requirements
 - Git
