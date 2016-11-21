@@ -20,7 +20,7 @@ class BeforeFeatureSpec extends Specification {
     @BeforeFeature("setupFeature")
     def "#myInt squared should equal #myInt times itself"() {
 
-        expect: "the square() method to return the square of an integer"
+        expect: "the square of an Integer to equal the number times itself"
         //Just some dummy test context
         myInt**2 == myInt * myInt
 

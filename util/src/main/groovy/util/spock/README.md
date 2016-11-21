@@ -8,13 +8,14 @@ To use them, annotate a feature as follows:
 ```groovy
 @BeforeFeature("setupFeature")
 @AfterFeature("cleanupFeature")
-def "should multiple a number by itself"() {
+def "should multiply a number by itself"() {
 
-    expect: "the square() method to return the square of an integer"
-    myInt.square() == myInt ** myInt
+    expect: "the square of an Integer to equal the number times itself"
+    myInt**2 == myInt * myInt
     
     where:
-    myInt = [1, 2, 3, 4, 5]
+    //Iterates the test, filling myInt with each value of the Array
+    myInt << [1, 2, 3, 4, 5]
 }
 ```
 
