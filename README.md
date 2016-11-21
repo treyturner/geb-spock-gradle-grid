@@ -73,6 +73,7 @@ You have a few choices on how to run tests.
 [WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
+
 [Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L8
 
 ## IntelliJ IDEA
