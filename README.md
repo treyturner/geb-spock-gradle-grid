@@ -1,12 +1,12 @@
 # geb-spock-gradle-grid
 
-This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable specifications, written in [Groovy] or [Java], read like plain English and drive automated [Selenium] browser sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
+This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable specifications, written in [Groovy] or [Java], read like plain English and drive automated [Selenium] browser sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object modeling] ensures the maintainability and re-usability of code.
 
 Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. There is seamless Integration with IntelliJ [IDEA], enabling easy step-by-step debugging and the testing of pipeline automation entry-points.
 
 The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional web application test suites or automation scripts across a variety of web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the integrated technologies up to date with modern browser standards.
 
-[Page Object]: https://github.com/SeleniumHQ/selenium/wiki/PageObjects
+[Page Object modeling]: https://github.com/SeleniumHQ/selenium/wiki/PageObjects
 
 ## Technologies Integrated
 
@@ -88,9 +88,14 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 
 [Search Engine Exercises]: search-engine-exercises
 
-1. How to write a basic spec
-2. How to write a basic page object
-3. How to use modules to model table rows
+1. How to write a basic [spec]
+2. How to write basic [page objects]
+3. How to use [modules] to model table rows
+
+[spec]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/spec/google/GoogleSearchSpec.groovy
+[page objects]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/page/google
+[modules]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/module/google/GoogleSearchResult.groovy
+
 
 ## Adding new modules
 It's easy to add a new module to start testing a new application.
