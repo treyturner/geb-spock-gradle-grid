@@ -35,5 +35,5 @@ def cleanupFeature() {
 
 There are [tests provided] for this functionality.
 
-[tests provided]: ../../../test/groovy/util/spock
+[tests provided]: util/src/test/groovy/util/spock
 
