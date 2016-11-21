@@ -92,9 +92,9 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 2. How to write basic [page objects]
 3. How to use [modules] to model table rows
 
-[spec]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/spec/google/GoogleSearchSpec.groovy
-[page objects]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/page/google
-[modules]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search-engine-exercises/module/google/GoogleSearchResult.groovy
+[spec]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/spec/google/GoogleSearchSpec.groovy
+[page objects]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/page/google
+[modules]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/module/google/GoogleSearchResult.groovy
 
 
 ## Adding new modules
