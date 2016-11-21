@@ -8,12 +8,12 @@ import spock.lang.Unroll
 @Slf4j
 class BeforeFeatureSpec extends Specification {
 
-    @Shared initCount = 0
+    @Shared setupCount = 0
 
     def setupFeature() {
         //only runs once, even if the feature iterates using a 'where' block
         log.info "reading a config file, connecting to a database, etc..."
-        initCount++
+        setupCount++
     }
 
     @Unroll
@@ -26,7 +26,7 @@ class BeforeFeatureSpec extends Specification {
 
         and: "we should only ever initialize once"
         //Here is the important assert
-        initCount == 1
+        setupCount == 1
 
         where:
         //Iterates the test, filling myInt with each value of the Array
