@@ -66,9 +66,10 @@ You have a few choices on how to run tests.
 - Browser Location
   - Local
   - Remote (Headless)
-    - For continuous integration. Docker is ideal for setting up your own [grid]
+    - For continuous integration. [Docker] is ideal for setting up your own [grid]
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
+[Docker]: https://www.docker.com/products/docker-toolbox
 [WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
