@@ -1,7 +1,7 @@
-package info.treyturner.qa.demo.search_engine_exercises.page.google
+package search_engine_exercises.page.google
 
 import geb.Page
-import info.treyturner.qa.demo.search_engine_exercises.module.google.GoogleSearchResult
+import search_engine_exercises.module.google.GoogleSearchResult
 
 class GoogleResultsPage extends Page {
 

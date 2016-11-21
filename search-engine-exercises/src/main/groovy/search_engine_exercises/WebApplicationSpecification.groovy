@@ -1,4 +1,4 @@
-package info.treyturner.qa.demo.search_engine_exercises
+package search_engine_exercises
 
 import org.slf4j.LoggerFactory
 import spock.lang.Shared

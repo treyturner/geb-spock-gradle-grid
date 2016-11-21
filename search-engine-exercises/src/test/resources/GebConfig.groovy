@@ -1,5 +1,5 @@
-import info.treyturner.qa.demo.search_engine_exercises.Globals
-import info.treyturner.qa.demo.util.WebDriver
+import search_engine_exercises.Globals
+import util.WebDriver
 
 waiting {
     //default (ie. wait:true)
@@ -32,5 +32,5 @@ waiting {
 
 //Globals (available to specs via browser.config.rawConfig.property)
 reportsDir = Globals.reportsDir
-//baseUrl = Globals.baseUrl
+baseUrl = Globals.baseUrl
 driver = WebDriver.configureDriver(Globals.browserLocation, Globals.browserType, Globals.platform)

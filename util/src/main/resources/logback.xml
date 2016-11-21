@@ -59,14 +59,7 @@
     <logger name="ch.qos.logback" level="OFF" />
     <logger name="com.athaydes" level="OFF" />
 
-    <logger name="info.treyturner" level="TRACE" additivity="false">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="INFO_FILE" />
-        <appender-ref ref="DEBUG_FILE" />
-        <appender-ref ref="TRACE_FILE" />
-    </logger>
-
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="INFO_FILE" />
         <appender-ref ref="DEBUG_FILE" />

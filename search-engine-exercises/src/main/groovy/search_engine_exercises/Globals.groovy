@@ -1,6 +1,6 @@
-package info.treyturner.qa.demo.search_engine_exercises
+package search_engine_exercises
 
-import info.treyturner.qa.demo.util.Util
+import util.Util
 
 class Globals {
 
@@ -8,6 +8,7 @@ class Globals {
     final static browserLocation = System.getProperty('browserLocation', 'local')
     final static browserType = System.getProperty('geb.local.browser', 'chrome')
 
+    final static baseUrl = ""
     final static reportsDir = 'build/reports'
     final static platform = Util.getPlatform()
 }

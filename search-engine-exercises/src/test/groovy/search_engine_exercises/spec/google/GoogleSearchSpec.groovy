@@ -1,8 +1,8 @@
-package info.treyturner.qa.demo.search_engine_exercises.spec.google
+package search_engine_exercises.spec.google
 
-import info.treyturner.qa.demo.search_engine_exercises.WebApplicationSpecification
-import info.treyturner.qa.demo.search_engine_exercises.page.google.GoogleResultsPage
-import info.treyturner.qa.demo.search_engine_exercises.page.google.GoogleSearchPage
+import search_engine_exercises.WebApplicationSpecification
+import search_engine_exercises.page.google.GoogleResultsPage
+import search_engine_exercises.page.google.GoogleSearchPage
 
 class GoogleSearchSpec extends WebApplicationSpecification {
 
