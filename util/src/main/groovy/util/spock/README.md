@@ -1,4 +1,4 @@
-The last time I checked, Spock supplies 'per-specification' and 'per-feature-iteration' setup and teardown methods, but does not seem to supply 'per-feature' setup and teardown methods, which run once per feature regardless of iteration. To address this, two Spock plugins are included: [BeforeFeature] and [AfterFeature].
+The last time I checked, Spock supplies 'per-specification' and 'per-feature-iteration' setup and teardown methods, but does not seem to provide 'per-feature' setup and teardown methods, which will run once per feature, regardless of iterations. To address this, two Spock plugins are included: [BeforeFeature] and [AfterFeature].
 
 [BeforeFeature]: BeforeFeature.groovy
 [AfterFeature]: AfterFeature.groovy
@@ -36,4 +36,3 @@ def cleanupFeature() {
 There are [tests provided] for this functionality.
 
 [tests provided]: /util/src/test/groovy/util/spock
-
