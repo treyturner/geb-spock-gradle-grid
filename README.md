@@ -53,7 +53,7 @@ Software       |Version |Description
   - On Mac / Linux: `./gradlew test`
 3. View the results.
   - HTML reports are written to `build/reports/tests`
-  - JUnit XML results (for CI/[Jenkins] consumption) are written to `build/test-results/tests`
+  - JUnit XML results (for [Jenkins]/CI consumption) are written to `build/test-results/tests`
   - Console text logs are written to `build/logs`
 
 [Jenkins]: https://jenkins.io
