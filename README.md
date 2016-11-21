@@ -1,18 +1,18 @@
 # geb-spock-gradle-grid
 
-This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable BDD specifications, written in [Java] or [Groovy], run [Selenium] sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
+This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable specifications, written in [Groovy] or [Java], read like plain English and drive automated [Selenium] browser sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
 
-Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. Integration with IntelliJ [IDEA] is seamless for easy step debugging and testing pipeline automation entrypoints.
+Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. There is seamless Integration with IntelliJ [IDEA], enabling easy step-by-step debugging and the testing of pipeline automation entry-points.
 
-The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional test suites or automation scripts across multiple web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the included technologies up to date with modern browser standards.
+The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional web application test suites or automation scripts across a variety of web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the integrated technologies up to date with modern browser standards.
 
 [Page Object]: https://github.com/SeleniumHQ/selenium/wiki/PageObjects
 
-## Implemented Technologies
+## Technologies Integrated
 
 Software       |Version |Description
 |---	       |---	    |---
-[Groovy]       |2.4.7   |High level Java scripting language
+[Groovy]       |2.4.7   |A powerful and expressive JVM ([Java]) scripting language
 [Geb] 	       |1.0   	|High level WebDriver API
 [Spock]	       |1.1   	|[BDD] test/specification runner
 [Gradle]       |3.2	    |Build tool & dependency management
@@ -38,7 +38,7 @@ Software       |Version |Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser ([Firefox] or [Chrome])
+- [Firefox] (tested against v50) and/or [Chrome] (tested against v54)
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
