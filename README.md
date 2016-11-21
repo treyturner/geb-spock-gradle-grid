@@ -38,7 +38,7 @@ Software       |Version |Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser. Tested against [Firefox] v50 and [Chrome] v54
+- A browser (or a remote [grid]). Tested against [Firefox] v50 and [Chrome] v54
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -95,7 +95,6 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 [spec]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/spec/google/GoogleSearchSpec.groovy
 [page objects]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/page/google
 [modules]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/module/google/GoogleSearchResult.groovy
-
 
 ## Adding new modules
 It's easy to add a new module to start testing a new application.
