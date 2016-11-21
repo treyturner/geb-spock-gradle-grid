@@ -38,7 +38,7 @@ Software       |Version |Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- [Firefox] (tested against v50) and/or [Chrome] (tested against v54)
+- A browser. Tested against [Firefox] v50 and [Chrome] v54
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
