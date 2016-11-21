@@ -70,10 +70,10 @@ You have a few choices on how to run tests.
     - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
 
 [Docker]: https://www.docker.com/products/docker-toolbox
-[WebDriver.groovy]: util/src/main/groovy/info/treyturner/qa/demo/util/WebDriver.groovy#L22
+[WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L22
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
-[Globals.groovy]: search-engine-exercises/src/main/groovy/info/treyturner/qa/demo/search_engine_exercises/Globals.groovy#L8
+[Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L8
 
 ## IntelliJ IDEA
 [IDEA] works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
@@ -93,9 +93,9 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 - How to write basic [page objects]
 - How to use [modules] to model table rows
 
-[spec]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/spec/google/GoogleSearchSpec.groovy
-[page objects]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/page/google
-[modules]: search-engine-exercises/src/test/groovy/info/treyturner/qa/demo/search_engine_exercises/module/google/GoogleSearchResult.groovy
+[spec]: search-engine-exercises/src/test/groovy/search_engine_exercises/spec/google/GoogleSearchSpec.groovy
+[page objects]: search-engine-exercises/src/test/groovy/search_engine_exercises/page/google
+[modules]: search-engine-exercises/src/test/groovy/search_engine_exercises/module/google/GoogleSearchResult.groovy
 
 
 ## Adding new modules
