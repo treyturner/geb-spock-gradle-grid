@@ -105,7 +105,7 @@ It's easy to add a new module to start testing a new application.
 1. Edit [settings.gradle] and add a line to `import 'your-module'`
 2. Copy a [build.gradle]  into the newly created `your-module/`
 3. Copy a [GebConfig.groovy] into `your-module/src/test/resources`
-4. Copy a [Globals.groovy] and a [WebApplicationSpecification.groovy] into `your-module/src/main/groovy/your_package`
+4. Copy a [Globals.groovy] and a [WebApplicationSpecification.groovy] into `your-module/src/main/groovy/your_package` and update the package name accordingly
 
 [settings.gradle]: settings.gradle
 [build.gradle]: search-engine-exercises/build.gradle
