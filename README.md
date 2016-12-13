@@ -111,4 +111,4 @@ It's easy to add a new module to start testing a new application.
 [build.gradle]: search-engine-exercises/build.gradle
 [GebConfig.groovy]: search-engine-exercises/src/test/resources/GebConfig.groovy
 [Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy
-[WebApplicationSpecification.groovy]: search-engine-exercises/src/main/groovy/search_engine_Exercises/WebApplicationSpecification.groovy
+[WebApplicationSpecification.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/WebApplicationSpecification.groovy
