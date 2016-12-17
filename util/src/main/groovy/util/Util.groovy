@@ -1,7 +1,9 @@
 package util
 
 import groovy.json.JsonBuilder
+import groovy.util.logging.Slf4j
 
+@Slf4j
 class Util {
 
     /**
@@ -11,20 +13,29 @@ class Util {
      * @return  one of 'windows64', 'windows32', 'osx', 'linux64', and 'linux32'
      */
     static String getPlatform() {
-        def platform = System.getProperty('os.name')
+        def ret = null,
+            platform = System.getProperty('os.name'),
+            architecture = System.getProperty('os.arch')
+//        log.trace "Detected platform: ${platform} (${architecture})"
         if (platform.toLowerCase().contains('windows')) {
             if (System.getenv("ProgramFiles(x86)") != null) {
-                return 'windows64'
+                ret = 'windows64'
             } else {
-                return 'windows32'
+                ret = 'windows32'
             }
-        } else if (platform.toLowerCase().contains('os x'))
-            return 'osx'
-        else if (platform.contains('64'))
-            return 'linux64'
-        else {
-            return 'linux32'
+        } else if (platform.toLowerCase().contains('os x')) {
+            ret =  'osx'
+        } else if (platform == 'Linux') {
+            switch (architecture) {
+                case 'amd64':
+                    ret = 'linux64'
+                    break
+                default:
+                    ret =  'linux32'
+                    break
+            }
         }
+        ret
     }
 
     /**
