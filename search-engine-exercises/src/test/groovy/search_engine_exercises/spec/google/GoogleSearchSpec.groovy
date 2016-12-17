@@ -41,6 +41,9 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         expect: "the first result to be for whitehouse.gov"
         results[0].name.text() == "The White House | whitehouse.gov"
         results[0].link.@href == "https://www.whitehouse.gov/"
-        results[0].description.text() == "See the President's daily schedule, explore behind-the-scenes photos from inside the White House, and find out all the ways you can engage with the most ..."
+
+        and: "to hit some basic matchers on the result description"
+        results[0].description.text().contains("White House")
+        results[0].description.text().contains("news")
     }
 }
