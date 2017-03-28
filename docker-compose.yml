@@ -1,0 +1,12 @@
+hub:
+  image: selenium/hub:3.2.0-actinium
+  ports:
+    - "4444:4444"
+firefox:
+  image: selenium/node-firefox:3.2.0-actinium
+  links:
+    - hub
+chrome:
+  image: selenium/node-chrome:3.2.0-actinium
+  links:
+    - hub

@@ -16,10 +16,21 @@ class WebDriver {
 
     /**
      * This is where you can optionally supply the domain name or IP address of your
-     * Selenium Grid hub for remote test execution. For more info on easily setting
-     * up a scalable grid, visit https://github.com/SeleniumHQ/docker-selenium
+     * Selenium Grid hub for headless execution. A docker-compose.yml is included in the project
+     * root; if you have docker and docker-compose installed, you can type `docker-compose up`
+     * to start containers that log to console, or `docker-compose up -d` to start
+     * the containers in daemon mode. You can then use `docker-compose scale firefox=5 chrome=5`
+     * or similar to scale the nodes as needed.
+     *
+     * When the hub is running, you can visit http://localhost:4444/grid/console in a browser to
+     * check the number and state of nodes.
+     *
+     * To stop all containers, you can issue `docker-compose stop`.
+     *
+     * For more information on available docker-selenium images and configuration, check out
+     * https://github.com/SeleniumHQ/docker-selenium
      */
-    static String gridUri = "http://your.grid.ip.address:4444/wd/hub";
+    static String gridUri = "http://localhost:4444/wd/hub"
 
     /**
      * This method, generally called from within each module's GebConfig.groovy,
