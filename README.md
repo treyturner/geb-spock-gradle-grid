@@ -14,7 +14,7 @@ Software                |Version|Description
 ---                     |---    |---
 [Groovy]                |2.4.10 |A powerful and expressive JVM ([Java]) scripting language
 [Geb] 	                |1.1.1  |High level WebDriver API
-[Spock]	                |1.1.1  |[BDD] test/specification runner
+[Spock]	                |1.1    |[BDD] test/specification runner
 [Gradle]                |3.4.1  |Build tool & dependency management
 [Selenium] (WebDriver)  |3.3.1  |Browser automation API
 [ChromeDriver]          |2.28   |Selenium driver for Chrome
