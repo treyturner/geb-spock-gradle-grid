@@ -1,4 +1,4 @@
-package search_engine_exercises
+package util
 
 import org.slf4j.LoggerFactory
 import spock.lang.Shared

@@ -1,6 +1,6 @@
 package search_engine_exercises.spec.google
 
-import search_engine_exercises.WebApplicationSpecification
+import util.WebApplicationSpecification
 import search_engine_exercises.page.google.GoogleResultsPage
 import search_engine_exercises.page.google.GoogleSearchPage
 
@@ -38,7 +38,7 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         given: "the user is at the former search result page"
         at GoogleResultsPage
 
-        expect: "the first result to be for whitehouse.gov"
+        expect: "the first result to be whitehouse.gov"
         results[0].name.text() == "The White House | whitehouse.gov"
         results[0].link.@href == "https://www.whitehouse.gov/"
 

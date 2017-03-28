@@ -16,7 +16,7 @@ class Util {
         def ret = null,
             platform = System.getProperty('os.name'),
             architecture = System.getProperty('os.arch')
-//        log.trace "Detected platform: ${platform} (${architecture})"
+        log.trace "Detected platform: ${platform} (${architecture})"
         if (platform.toLowerCase().contains('windows')) {
             if (System.getenv("ProgramFiles(x86)") != null) {
                 ret = 'windows64'
@@ -24,14 +24,14 @@ class Util {
                 ret = 'windows32'
             }
         } else if (platform.toLowerCase().contains('os x')) {
-            ret =  'osx'
+            ret = 'osx'
         } else if (platform == 'Linux') {
             switch (architecture) {
                 case 'amd64':
                     ret = 'linux64'
                     break
                 default:
-                    ret =  'linux32'
+                    ret = 'linux32'
                     break
             }
         }
