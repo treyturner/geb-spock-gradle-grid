@@ -1,12 +1,12 @@
 # geb-spock-gradle-grid
 
-This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable specifications, written in [Groovy] or [Java], read like plain English and drive automated [Selenium] browser sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object modeling] ensures the maintainability and re-usability of code.
+This multi-module [Gradle] project leverages [Geb] and [Spock] to create a behavior-driven development ([BDD]) web automation framework. The executable specifications, written in [Groovy] or [Java], read like plain English and drive automated [Selenium] browser sessions locally or (optionally) against a scalable remote [grid]. The use of [Page Object] modeling ensures the maintainability and re-usability of code.
 
 Multi-level logging is supported via [slf4j] and [logback]. A shared utility package is utilized to store common code. There is seamless Integration with IntelliJ [IDEA], enabling easy step-by-step debugging and the testing of pipeline automation entry-points.
 
 The project is intended for educational and demonstration purposes, and can serve as a starting point to rapidly develop functional web application test suites or automation scripts across a variety of web applications. Additional examples and design patterns will be added over time and an effort will be made to keep the integrated technologies up to date with modern browser standards.
 
-[Page Object modeling]: https://github.com/SeleniumHQ/selenium/wiki/PageObjects
+[Page Object]: https://github.com/SeleniumHQ/selenium/wiki/PageObjects
 
 ## Technologies Integrated
 
@@ -38,7 +38,7 @@ Software                |Version|Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser (or a remote [grid]). Tested against [Firefox] v50 and [Chrome] v54
+- A browser (or a remote [grid]). Tested against [Firefox] v50 and [Chrome] v57
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -105,10 +105,11 @@ It's easy to add a new module to start testing a new application.
 1. Edit [settings.gradle] and add a line to `import 'your-module'`
 2. Copy a [build.gradle]  into the newly created `your-module/`
 3. Copy a [GebConfig.groovy] into `your-module/src/test/resources`
-4. Copy a [Globals.groovy] and a [WebApplicationSpecification.groovy] into `your-module/src/main/groovy/your_package` and update the package names accordingly
+4. Copy a [Globals.groovy] into `your-module/src/main/groovy/your_package` and update the package name accordingly
+5. Start writing [Page Object]s and [spec]s
 
 [settings.gradle]: settings.gradle
 [build.gradle]: search-engine-exercises/build.gradle
 [GebConfig.groovy]: search-engine-exercises/src/test/resources/GebConfig.groovy
 [Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy
-[WebApplicationSpecification.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/WebApplicationSpecification.groovy
+[WebApplicationSpecification.groovy]: util/src/main/groovy/util/WebApplicationSpecification.groovy

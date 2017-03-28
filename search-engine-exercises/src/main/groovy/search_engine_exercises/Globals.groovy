@@ -9,6 +9,6 @@ class Globals {
     final static browserType = System.getProperty('geb.local.browser', 'chrome')
 
     final static baseUrl = ""
-    final static reportsDir = 'build/reports'
+    final static reportsDir = "build/reports"
     final static platform = Util.getPlatform()
 }
