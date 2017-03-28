@@ -30,7 +30,7 @@ subprojects {
 
     dependencies {
         //groovy
-        compile 'org.codehaus.groovy:groovy-all:2.4.7'
+        compile 'org.codehaus.groovy:groovy-all:2.4.10'
 
         //spock
         compile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-3'
@@ -41,9 +41,9 @@ subprojects {
         }
 
         //logging via slf4j & logback
-        compile 'org.slf4j:slf4j-api:1.7.21'
-        compile 'ch.qos.logback:logback-core:1.1.7'
-        compile 'ch.qos.logback:logback-classic:1.1.7'
+        compile 'org.slf4j:slf4j-api:1.7.25'
+        compile 'ch.qos.logback:logback-core:1.2.2'
+        compile 'ch.qos.logback:logback-classic:1.2.2'
     }
 }
 
@@ -52,5 +52,5 @@ subprojects {
  * 'gradlew.bat wrapper' on Windows to upgrade to that version.
  */
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2'
+    gradleVersion = '3.4.1'
 }

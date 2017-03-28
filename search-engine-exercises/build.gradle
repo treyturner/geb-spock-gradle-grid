@@ -1,8 +1,12 @@
+ext {
+    gebVersion = "1.1.1"
+}
+
 dependencies {
     //our utility package
     compile project(':util')
 
     //geb
-    compile 'org.gebish:geb-spock:1.0'
+    compile "org.gebish:geb-spock:$gebVersion"
 }
 

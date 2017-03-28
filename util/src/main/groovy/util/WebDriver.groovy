@@ -39,50 +39,47 @@ class WebDriver {
             case 'local':
                 switch (browserType) {
                     case 'firefox':
-                        def geckoDriverVersion = "0.11.1"
+                        def geckoDriverVersion = "0.15.0"
                         switch (platform) {
                             case 'windows32':
                                 System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_win32.exe")
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win32/geckodriver.exe")
                                 break
                             case 'windows64':
                                 System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_win64.exe")
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win64/geckodriver.exe")
                                 break
                             case 'osx':
                                 System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_macos")
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-macos/geckodriver")
                                 break
                             case 'linux32':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_linux32")
-                                break
                             case 'linux64':
                                 System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/$geckoDriverVersion/geckodriver_linux64")
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-linux64/geckodriver")
                                 break
                         }
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.25"
+                        def chromeDriverVersion = "2.28"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':
                                 System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_win32.exe")
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_win32/chromedriver.exe")
                                 break
                             case 'osx':
                                 System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_mac64")
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_mac64/chromedriver")
                                 break
                             case 'linux32':
                                 System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux32")
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux32/chromedriver")
                                 break
                             case 'linux64':
                                 System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux64")
+                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux64/chromedriver")
                                 break
                         }
                         driver = { new ChromeDriver() }
