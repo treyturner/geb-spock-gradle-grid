@@ -12,15 +12,15 @@ The project is intended for educational and demonstration purposes, and can serv
 
 Software                |Version|Description
 ---                     |---    |---
-[Groovy]                |2.4.10 |A powerful and expressive JVM ([Java]) scripting language
+[Groovy]                |2.4.12 |A powerful and expressive JVM ([Java]) scripting language
 [Geb] 	                |1.1.1  |High level WebDriver API
 [Spock]	                |1.1    |[BDD] test/specification runner
-[Gradle]                |3.4.1  |Build tool & dependency management
-[Selenium] (WebDriver)  |3.3.1  |Browser automation API
-[ChromeDriver]          |2.28   |Selenium driver for Chrome
-[GeckoDriver]           |0.15.0 |Selenium driver for Mozilla
+[Gradle]                |4.0    |Build tool & dependency management
+[Selenium] (WebDriver)  |3.4.0  |Browser automation API
+[ChromeDriver]          |2.30   |Selenium driver for Chrome
+[GeckoDriver]           |0.17.0 |Selenium driver for Mozilla
 [slf4j]                 |1.7.25 |Logging API
-[logback]               |1.2.2  |Logging implementation
+[logback]               |1.2.3  |Logging implementation
 
 [Groovy]: http://groovy-lang.org/
 [Geb]: http://gebish.org
@@ -38,7 +38,7 @@ Software                |Version|Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser (or a remote [grid]). Tested against [Firefox] v50 and [Chrome] v57
+- A browser (or a remote [grid]). Tested against [Firefox] v54 and [Chrome] v59
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
