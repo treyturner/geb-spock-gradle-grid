@@ -50,12 +50,9 @@ class WebDriver {
             case 'local':
                 switch (browserType) {
                     case 'firefox':
-                        def geckoDriverVersion = "0.17.0"
+                        def geckoDriverVersion = "0.19.0"
                         switch (platform) {
-                            case 'windows32':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win32/geckodriver.exe")
-                                break
+                            case 'windows32': // Probably not supported, no win32 binary available
                             case 'windows64':
                                 System.setProperty("webdriver.gecko.driver",
                                         "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win64/geckodriver.exe")
@@ -65,6 +62,9 @@ class WebDriver {
                                         "$driverPath/gecko/geckodriver-v$geckoDriverVersion-macos/geckodriver")
                                 break
                             case 'linux32':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-linux32/geckodriver")
+                                break
                             case 'linux64':
                                 System.setProperty("webdriver.gecko.driver",
                                         "$driverPath/gecko/geckodriver-v$geckoDriverVersion-linux64/geckodriver")
@@ -73,7 +73,7 @@ class WebDriver {
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.30"
+                        def chromeDriverVersion = "2.32"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':
