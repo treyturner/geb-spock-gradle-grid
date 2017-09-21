@@ -24,7 +24,10 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         searchBox = 'The White House'
 
         and: "the user clicks the search button"
-        searchButton.click()
+        if (suggestionSearchButton.displayed)
+            suggestionSearchButton.click()
+        else
+            searchButton.click()
 
         then: "the user is brought to the search results page"
         at GoogleResultsPage
