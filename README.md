@@ -38,7 +38,7 @@ Software                |Version|Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser (or a remote [grid]). Tested against [Firefox] v54 and [Chrome] v59
+- A browser (or a remote [grid]). Tested against [Firefox] v55 and [Chrome] v61
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
