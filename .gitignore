@@ -1,9 +1,15 @@
-.gradle
-build/
-.idea/*
+#Ignore Mac OS filesystem metadata
 .DS_Store
 
-# Ignore Gradle GUI config
+# Ignore IDEA files
+.idea/*
+*.iml
+
+# Ignore build artifacts
+build/
+
+# Ignore Gradle cache and GUI config
+.gradle
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
