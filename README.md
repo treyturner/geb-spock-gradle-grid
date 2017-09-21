@@ -107,7 +107,7 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 ## Adding new modules
 It's easy to add a new module to start testing a new application.
 
-1. Edit [settings.gradle] and add a line to `import 'your-module'`
+1. Edit [settings.gradle] and add a line to `include 'your-module'`
 2. Copy a [build.gradle]  into the newly created `your-module/`
 3. Copy a [GebConfig.groovy] into `your-module/src/test/resources`
 4. Copy a [Globals.groovy] into `your-module/src/main/groovy/your_package` and update the package name accordingly
