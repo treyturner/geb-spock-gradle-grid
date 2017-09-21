@@ -15,10 +15,10 @@ Software                |Version|Description
 [Groovy]                |2.4.12 |A powerful and expressive JVM ([Java]) scripting language
 [Geb] 	                |1.1.1  |High level WebDriver API
 [Spock]	                |1.1    |[BDD] test/specification runner
-[Gradle]                |4.2    |Build tool & dependency management
-[Selenium] (WebDriver)  |3.5.3  |Browser automation API
-[ChromeDriver]          |2.32   |Selenium driver for Chrome
-[GeckoDriver]           |0.19.0 |Selenium driver for Mozilla
+[Gradle]                |4.0    |Build tool & dependency management
+[Selenium] (WebDriver)  |3.4.0  |Browser automation API
+[ChromeDriver]          |2.30   |Selenium driver for Chrome
+[GeckoDriver]           |0.17.0 |Selenium driver for Mozilla
 [slf4j]                 |1.7.25 |Logging API
 [logback]               |1.2.3  |Logging implementation
 
@@ -48,15 +48,10 @@ Software                |Version|Description
 ## Setup & Run
 1. Clone the repo.
   - `git clone git@github.com:treyturner/geb-spock-gradle-grid.git`
-2. Change directory.
-  - `cd geb-spock-gradle-grid`
-3. Make drivers executable (Mac OS/Linux)
-  - `find . -name chromedriver -exec chmod +x {} \;`
-  - `find . -name geckodriver -exec chmod +x {} \;`
-4. Run specs.
+2. Run specs.
   - On Windows: `gradlew.bat test`
   - On Mac / Linux: `./gradlew test`
-5. View the results.
+3. View the results.
   - HTML reports are written to `build/reports/tests`
   - JUnit XML results (for [Jenkins]/CI consumption) are written to `build/test-results/tests`
   - Console text logs are written to `build/logs`

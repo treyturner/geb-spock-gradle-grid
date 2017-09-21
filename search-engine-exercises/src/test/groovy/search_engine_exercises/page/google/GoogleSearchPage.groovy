@@ -18,11 +18,6 @@ class GoogleSearchPage extends Page {
         searchBox
                 { $('input', id:'lst-ib') }
         searchButton
-                { $('input', name:'btnK') }
-        suggestionBox (wait:true)
-                { $('div', class:'sbdd_a') }
-        suggestionSearchButton (wait:true)
-                { suggestionBox.find('input', value:'Google Search') }
-
+                { $('button', type:'submit') }
     }
 }
