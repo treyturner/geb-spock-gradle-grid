@@ -2,7 +2,7 @@
 .DS_Store
 
 # Ignore IDEA files
-.idea/*
+.idea/
 *.iml
 
 # Ignore build artifacts
