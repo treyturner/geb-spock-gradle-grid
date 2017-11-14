@@ -13,10 +13,10 @@ The project is intended for educational and demonstration purposes, and can serv
 Software                |Version|Description
 ---                     |---    |---
 [Groovy]                |2.4.12 |A powerful and expressive JVM ([Java]) scripting language
-[Geb] 	                |1.1.1  |High level WebDriver API
+[Geb] 	                |2.0    |High level WebDriver API
 [Spock]	                |1.1    |[BDD] test/specification runner
-[Gradle]                |4.2    |Build tool & dependency management
-[Selenium] (WebDriver)  |3.5.3  |Browser automation API
+[Gradle]                |4.3.1  |Build tool & dependency management
+[Selenium] (WebDriver)  |3.7.1  |Browser automation API
 [ChromeDriver]          |2.32   |Selenium driver for Chrome
 [GeckoDriver]           |0.19.0 |Selenium driver for Mozilla
 [slf4j]                 |1.7.25 |Logging API

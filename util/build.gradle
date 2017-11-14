@@ -1,6 +1,6 @@
 ext {
-    seleniumVersion = "3.5.3"
-    gebVersion = "1.1.1"
+    seleniumVersion = "3.7.1"
+    gebVersion = "2.0"
     codebornePhantomJsVersion = "1.2.1"
 }
 

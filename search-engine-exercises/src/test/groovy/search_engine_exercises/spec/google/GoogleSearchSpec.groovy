@@ -46,7 +46,6 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         results[0].link.@href == "https://www.whitehouse.gov/"
 
         and: "to hit some basic matchers on the result description"
-        results[0].description.text().contains("White House")
-        results[0].description.text().contains("news")
+        results[0].description.text().toLowerCase().contains("white house")
     }
 }
