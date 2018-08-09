@@ -42,7 +42,7 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         at GoogleResultsPage
 
         expect: "the first result to be whitehouse.gov"
-        results[0].name.text() == "The White House | whitehouse.gov"
+        results[0].name.text().contains("The White House")
         results[0].link.@href == "https://www.whitehouse.gov/"
 
         and: "to hit some basic matchers on the result description"

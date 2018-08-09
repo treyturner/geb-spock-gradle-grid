@@ -1,5 +1,5 @@
 ext {
-    gebVersion = "2.0"
+    gebVersion = "2.2"
 }
 
 dependencies {

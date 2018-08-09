@@ -12,19 +12,21 @@ The project is intended for educational and demonstration purposes, and can serv
 
 Software                |Version|Description
 ---                     |---    |---
-[Groovy]                |2.4.12 |A powerful and expressive JVM ([Java]) scripting language
-[Geb] 	                |2.0    |High level WebDriver API
+[Groovy]                |2.5.1  |A powerful and expressive JVM ([Java]) scripting language
+[Geb] 	                |2.2    |High level WebDriver API
 [Spock]	                |1.1    |[BDD] test/specification runner
-[Gradle]                |4.3.1  |Build tool & dependency management
-[Selenium] (WebDriver)  |3.7.1  |Browser automation API
-[ChromeDriver]          |2.32   |Selenium driver for Chrome
-[GeckoDriver]           |0.19.0 |Selenium driver for Mozilla
+[Gradle]                |4.9    |Build tool & dependency management
+[Selenium] (WebDriver)  |3.13.0 |Browser automation API
+[ChromeDriver]          |2.41   |Selenium driver for Chrome
+[GeckoDriver]           |0.21.0 |Selenium driver for Mozilla
 [slf4j]                 |1.7.25 |Logging API
 [logback]               |1.2.3  |Logging implementation
+[Spock Reports]         |1.6.0  |Third-party HTML reporting module for Spock
 
 [Groovy]: http://groovy-lang.org/
 [Geb]: http://gebish.org
 [Spock]: http://spockframework.org
+[Spock Reports]: https://github.com/renatoathaydes/spock-reports
 [BDD]: https://en.wikipedia.org/wiki/Behavior-driven_development
 [Gradle]: https://gradle.org
 [Selenium]: http://docs.seleniumhq.org

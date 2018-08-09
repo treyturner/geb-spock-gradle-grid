@@ -50,9 +50,12 @@ class WebDriver {
             case 'local':
                 switch (browserType) {
                     case 'firefox':
-                        def geckoDriverVersion = "0.19.0"
+                        def geckoDriverVersion = "0.21.0"
                         switch (platform) {
-                            case 'windows32': // Probably not supported, no win32 binary available
+                            case 'windows32':
+                                System.setProperty("webdriver.gecko.driver",
+                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win32/geckodriver.exe")
+                                break
                             case 'windows64':
                                 System.setProperty("webdriver.gecko.driver",
                                         "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win64/geckodriver.exe")
@@ -73,7 +76,7 @@ class WebDriver {
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.32"
+                        def chromeDriverVersion = "2.41"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':
@@ -84,10 +87,7 @@ class WebDriver {
                                 System.setProperty("webdriver.chrome.driver",
                                         "$driverPath/chrome/$chromeDriverVersion/chromedriver_mac64/chromedriver")
                                 break
-                            case 'linux32':
-                                System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux32/chromedriver")
-                                break
+                            case 'linux32': // Probably not supported, no x86 linux binary available
                             case 'linux64':
                                 System.setProperty("webdriver.chrome.driver",
                                         "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux64/chromedriver")
