@@ -4,7 +4,7 @@ import geb.Page
 
 class GoogleSearchPage extends Page {
 
-    static url = "http://google.com"
+    static url = "https://google.com"
 
     static atCheckWaiting = 'short'
 
@@ -14,14 +14,9 @@ class GoogleSearchPage extends Page {
     }
 
     static content = {
-
         searchBox
-                { $('input', id:'lst-ib') }
+                { $('input', name:'q') }
         searchButton
-                { $('input', name:'btnK') }
-        suggestionBox (wait:true)
-                { $('div', class:'sbdd_a') }
-        suggestionSearchButton (wait:true)
-                { suggestionBox.find('input', value:'Google Search') }
+                { $('input', name:'btnK').first() }
     }
 }

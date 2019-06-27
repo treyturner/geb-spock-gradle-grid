@@ -1,5 +1,5 @@
 ext {
-    gebVersion = "2.2"
+    gebVersion = "3.0.1"
 }
 
 dependencies {
@@ -9,4 +9,3 @@ dependencies {
     //geb
     compile "org.gebish:geb-spock:$gebVersion"
 }
-

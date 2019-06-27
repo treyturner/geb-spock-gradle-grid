@@ -50,7 +50,7 @@ class WebDriver {
             case 'local':
                 switch (browserType) {
                     case 'firefox':
-                        def geckoDriverVersion = "0.21.0"
+                        def geckoDriverVersion = "0.24.0"
                         switch (platform) {
                             case 'windows32':
                                 System.setProperty("webdriver.gecko.driver",
@@ -76,7 +76,7 @@ class WebDriver {
                         driver = { new FirefoxDriver() }
                         break
                     case 'chrome':
-                        def chromeDriverVersion = "2.41"
+                        def chromeDriverVersion = "75.0.3770.90"
                         switch (platform) {
                             case 'windows32':
                             case 'windows64':

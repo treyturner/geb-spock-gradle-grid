@@ -10,18 +10,18 @@ The project is intended for educational and demonstration purposes, and can serv
 
 ## Technologies Integrated
 
-Software                |Version|Description
----                     |---    |---
-[Groovy]                |2.5.1  |A powerful and expressive JVM ([Java]) scripting language
-[Geb] 	                |2.2    |High level WebDriver API
-[Spock]	                |1.1    |[BDD] test/specification runner
-[Gradle]                |4.9    |Build tool & dependency management
-[Selenium] (WebDriver)  |3.13.0 |Browser automation API
-[ChromeDriver]          |2.41   |Selenium driver for Chrome
-[GeckoDriver]           |0.21.0 |Selenium driver for Mozilla
-[slf4j]                 |1.7.25 |Logging API
-[logback]               |1.2.3  |Logging implementation
-[Spock Reports]         |1.6.0  |Third-party HTML reporting module for Spock
+Software                |Version        |Description
+---                     |---            |---
+[Groovy]                |2.5.7          |A powerful and expressive JVM ([Java]) scripting language
+[Geb] 	                |3.0.1          |High level WebDriver API
+[Spock]	                |1.3            |[BDD] test/specification runner
+[Gradle]                |5.3.1          |Build tool & dependency management
+[Selenium] (WebDriver)  |3.14.159       |Browser automation API
+[ChromeDriver]          |75.0.3770.90   |Selenium driver for Chrome
+[GeckoDriver]           |0.24.0         |Selenium driver for Mozilla
+[slf4j]                 |1.7.26         |Logging API
+[logback]               |1.2.3          |Logging implementation
+[Spock Reports]         |1.6.2          |Third-party HTML reporting module for Spock
 
 [Groovy]: http://groovy-lang.org/
 [Geb]: http://gebish.org
@@ -40,7 +40,7 @@ Software                |Version|Description
 ## Requirements
 - [Git]
 - [Java] Development Kit 7+
-- A browser (or a remote [grid]). Tested against [Firefox] v55 and [Chrome] v61
+- A browser (or a remote [grid]). Tested against [Firefox] v67 and [Chrome] v75
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html

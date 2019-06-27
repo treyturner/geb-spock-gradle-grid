@@ -8,10 +8,10 @@ class GoogleSearchResult extends Module {
         container
                 { $('div', class:'rc') }
         name
-                { container.find('h3', class:'r') }
+                { container.find('h3').first() }
         link
-                { name.find('a') }
+                { container.find('a').first() }
         description
-                { container.find('span', class:'st') }
+                { container.find('span', class:'st').first() }
     }
 }

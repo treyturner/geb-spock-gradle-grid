@@ -8,7 +8,7 @@ class GoogleSearchSpec extends WebApplicationSpecification {
 
     def "should load the Google search page"() {
 
-        given: "the user navigates to the Google search page"
+        given: "a user navigates to the Google search page"
         to GoogleSearchPage
 
         expect: "the Google search page to be shown"
@@ -17,17 +17,19 @@ class GoogleSearchSpec extends WebApplicationSpecification {
 
     def "should return search results when performing a search"() {
 
-        given: "the user is at the Google search page"
+        given: "a user is at the Google search page"
         at GoogleSearchPage
 
-        when: "the user types 'The White House' into the search field"
+        when: "they type 'The White House' into the search field"
         searchBox = 'The White House'
 
-        and: "the user clicks the search button"
-        if (suggestionSearchButton.displayed)
-            suggestionSearchButton.click()
-        else
-            searchButton.click()
+        and: "move the mouse to the search button and click"
+        // Google protects their search button with javascript,
+        // so we must actually move the mouse to the button
+        interact {
+            moveToElement(searchButton)
+            click(searchButton)
+        }
 
         then: "the user is brought to the search results page"
         at GoogleResultsPage
@@ -46,6 +48,6 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         results[0].link.@href == "https://www.whitehouse.gov/"
 
         and: "to hit some basic matchers on the result description"
-        results[0].description.text().toLowerCase().contains("white house")
+        results[0].description.text().toLowerCase().contains("america")
     }
 }

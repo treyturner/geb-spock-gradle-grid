@@ -8,7 +8,7 @@ class GoogleResultsPage extends Page {
     static atCheckWaiting = 'shorter'
 
     static at = {
-        title.contains('Google')
+        title.contains('Google Search')
         results
     }
 
