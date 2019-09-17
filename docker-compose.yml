@@ -1,14 +1,14 @@
 hub:
-  image: selenium/hub:3.141.59-radium
+  image: selenium/hub:3.141.59-vanadium
   ports:
     - "4444:4444"
 
 firefox:
-  image: selenium/node-firefox:3.141.59-radium
+  image: selenium/node-firefox:3.141.59-vanadium
   links:
     - hub
 
 chrome:
-  image: selenium/node-chrome:3.141.59-radium
+  image: selenium/node-chrome:3.141.59-vanadium
   links:
     - hub

@@ -30,11 +30,7 @@ waiting {
     }
 }
 
-//Globals (available to specs via browser.config.rawConfig.property)
+//Globals (available to specs via browser.config.rawConfig)
 reportsDir = Globals.reportsDir
 baseUrl = Globals.baseUrl
-driver = WebDriver.configureDriver(
-        Globals.browserLocation,
-        Globals.browserType,
-        Globals.platform
-)
+driver = WebDriver.configureDriver(Globals.browser, Globals.location)

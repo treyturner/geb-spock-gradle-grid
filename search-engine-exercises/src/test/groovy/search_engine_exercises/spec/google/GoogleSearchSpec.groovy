@@ -26,6 +26,7 @@ class GoogleSearchSpec extends WebApplicationSpecification {
         and: "move the mouse to the search button and click"
         // Google protects their search button with javascript,
         // so we must actually move the mouse to the button
+        sleep 1500
         interact {
             moveToElement(searchButton)
             click(searchButton)
