@@ -1,5 +1,18 @@
+import org.gradle.internal.os.OperatingSystem
+
+plugins {
+    id "com.github.erdi.webdriver-binaries" version "2.1"
+}
+
 ext {
-    gebVersion = "3.0.1"
+    drivers = ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless']
+
+    ext {
+        gebVersion = '3.0.1'
+        chromeDriverVersion = '76.0.3809.126'
+        geckoDriverVersion = '0.24.0'
+        ieDriverVersion = '3.14.0'
+    }
 }
 
 dependencies {
@@ -8,4 +21,45 @@ dependencies {
 
     //geb
     compile "org.gebish:geb-spock:$gebVersion"
+}
+
+webdriverBinaries {
+    // If you get an error that the version you want isn't found, you may need to submit a PR
+    // to https://github.com/webdriverextensions/webdriverextensions-maven-plugin-repository
+    chromedriver {
+        version = chromeDriverVersion
+        if (OperatingSystem.current().isWindows()) {
+            architecture = "X86"
+        }
+    }
+    geckodriver {
+        version = geckoDriverVersion
+    }
+    iedriverserver {
+        version = ieDriverVersion
+        architecture = 'X86'
+    }
+}
+
+drivers.each { driver ->
+    task "${driver}Test"(type: Test) {
+        systemProperty 'geb.browser', driver
+    }
+}
+
+test {
+    enabled = false
+
+    // Run ALL configured drivers during 'test'
+    //dependsOn drivers.collect { tasks["${it}Test"]}
+
+    // Run only chrome and firefox during 'test'
+    dependsOn chromeTest, firefoxTest
+}
+
+tasks.withType(Test) {
+    ignoreFailures = true
+    doLast {
+        println "systemProperties: $systemProperties"
+    }
 }

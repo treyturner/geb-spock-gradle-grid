@@ -1,7 +1,6 @@
 ext {
-    seleniumVersion = "3.141.59"
-    gebVersion = "3.0.1"
-    codebornePhantomJsVersion = "1.4.4"
+    seleniumVersion = '3.141.59'
+    gebVersion = '3.0.1'
 }
 
 dependencies {
@@ -14,11 +13,4 @@ dependencies {
 
     //geb
     compile "org.gebish:geb-spock:$gebVersion"
-
-    //working patched phantomjs
-    compile ("com.codeborne:phantomjsdriver:$codebornePhantomJsVersion") {
-        transitive = false
-    }
 }
-
-//TODO: Write tasks to bootstrap browser drivers based on the version string and the local platform

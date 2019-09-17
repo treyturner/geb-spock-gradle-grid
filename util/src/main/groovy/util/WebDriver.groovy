@@ -3,11 +3,11 @@ package util
 import geb.js.JavascriptInterface
 import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
-import org.openqa.selenium.Dimension
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
+import org.openqa.selenium.firefox.FirefoxBinary
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.phantomjs.PhantomJSDriver
-import org.openqa.selenium.phantomjs.PhantomJSDriverService
+import org.openqa.selenium.firefox.FirefoxOptions
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
@@ -30,7 +30,7 @@ class WebDriver {
      * For more information on available docker-selenium images and configuration, check out
      * https://github.com/SeleniumHQ/docker-selenium
      */
-    static String gridUri = "http://localhost:4444/wd/hub"
+    static String gridUrl = System.getenv('GRID_URL') ?: 'http://localhost:4444/wd/hub'
 
     /**
      * This method, generally called from within each module's GebConfig.groovy,
@@ -40,115 +40,66 @@ class WebDriver {
      *
      * @param browserLocation   'local' or 'remote'
      * @param browserType       'firefox' and 'chrome' are supported for local/remote, 'phantomjs' is supported for local
-     * @param platform          resolved by Util.getPlatform()
      * @return                  a driver Closure that Geb can use to configure the Selenium session
      */
-    static Closure configureDriver(String browserLocation, String browserType, String platform) {
+    static Closure configureDriver(String browser, String location) {
         Closure driver
-        String driverPath = "../util/drivers"
-        switch (browserLocation) {
+        switch (location) {
             case 'local':
-                switch (browserType) {
-                    case 'firefox':
-                        def geckoDriverVersion = "0.24.0"
-                        switch (platform) {
-                            case 'windows32':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win32/geckodriver.exe")
-                                break
-                            case 'windows64':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-win64/geckodriver.exe")
-                                break
-                            case 'osx':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-macos/geckodriver")
-                                break
-                            case 'linux32':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-linux32/geckodriver")
-                                break
-                            case 'linux64':
-                                System.setProperty("webdriver.gecko.driver",
-                                        "$driverPath/gecko/geckodriver-v$geckoDriverVersion-linux64/geckodriver")
-                                break
-                        }
-                        driver = { new FirefoxDriver() }
-                        break
+                switch (browser) {
                     case 'chrome':
-                        def chromeDriverVersion = "75.0.3770.90"
-                        switch (platform) {
-                            case 'windows32':
-                            case 'windows64':
-                                System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_win32/chromedriver.exe")
-                                break
-                            case 'osx':
-                                System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_mac64/chromedriver")
-                                break
-                            case 'linux32': // Probably not supported, no x86 linux binary available
-                            case 'linux64':
-                                System.setProperty("webdriver.chrome.driver",
-                                        "$driverPath/chrome/$chromeDriverVersion/chromedriver_linux64/chromedriver")
-                                break
-                        }
                         driver = { new ChromeDriver() }
                         break
-                    case 'phantomjs':
-                        /**
-                         * PhantomJS was only tested on OSX, and never worked very well. If you want to
-                         * try, you'll need to acquire binaries for your OS, set the paths appropriately,
-                         * and quite possibly set some other driver options not covered here.
-                         */
-                        switch (platform) {
-                            case 'windows32':
-                                driverPath = "$driverPath/phantomjs/phantomjs_win32.exe"
-                                break
-                            case 'windows64':
-                                driverPath = "$driverPath/phantomjs/phantomjs_win64.exe"
-                                break
-                            case 'osx':
-                                driverPath = '/usr/local/bin/phantomjs'
-                                break
-                            case 'linux32':
-                            case 'linux64':
-                                driverPath = '/usr/bin/phantomjs'
-                                break
-                        }
-                        driver = {
-                            log.trace "Resolved PhantomJS driver path: $driverPath"
-                            def caps = new DesiredCapabilities()
-                            caps.setCapability(
-                                    PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                                    driverPath
-                            )
-                            def d = new PhantomJSDriver(caps)
-                            d.manage().window().setSize(new Dimension(1024,768))
-                            d
-                        }
+                    case 'chromeHeadless':
+                        ChromeOptions options = new ChromeOptions().setHeadless(true)
+                        driver = { new ChromeDriver(options) }
+                        break
+                    case 'firefox':
+                        driver = { new FirefoxDriver() }
+                        break
+                    case 'firefoxHeadless':
+                        FirefoxBinary binary = new FirefoxBinary()
+                        binary.addCommandLineOptions("--headless")
+                        FirefoxOptions options = new FirefoxOptions()
+                        options.setBinary(binary)
+                        driver = { new FirefoxDriver(options) }
+                        break
+                    default:
+                        assert ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless'].contains(browser), "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for local browser sessions."
                 }
                 break
-            case 'remote':
+            case 'grid':
                 driver = {
                     DesiredCapabilities capabilities
-                    switch (browserType) {
-                        case 'firefox':
-                            capabilities = DesiredCapabilities.firefox()
-                            break
+                    switch (browser) {
                         case 'chrome':
                             capabilities = DesiredCapabilities.chrome()
                             break
+                        case 'chromeHeadless':
+                            ChromeOptions options = new ChromeOptions()
+                            options.setHeadless(true)
+                            capabilities = DesiredCapabilities.chrome()
+                            capabilities.setCapability(ChromeOptions.CAPABILITY, options)
+                            break
+                        case 'firefox':
+                            capabilities = DesiredCapabilities.firefox()
+                            break
+                        case 'firefoxHeadless':
+                            capabilities = DesiredCapabilities.firefox()
+                            FirefoxOptions options = new FirefoxOptions()
+                            options.setHeadless(true)
+                            capabilities.merge(options)
+                            break
                         default:
-                            assert ['firefox', 'chrome'].contains(browserType), "Only Firefox and Chrome are currently supported for remote WebDriver sessions."
+                            assert ['chrome', 'chromeHeadless', 'firefox', 'fireHeadless'].contains(browser), "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for remote browser sessions."
                     }
-                    new RemoteWebDriver(
-                            new URL(gridUri), capabilities
-                    )
+                    new RemoteWebDriver(new URL(gridUrl), capabilities)
                 }
                 break
+            default:
+                assert ['local', 'grid'].contains(location), "Only local and grid locations are supported."
         }
-        assert driver, "Couldn't configure WebDriver (location:'$browserLocation', type:'$browserType', platform:'$platform')"
+        assert driver, "Couldn't configure WebDriver (browser:'$browser', location:'$location')"
         driver
     }
 
@@ -176,7 +127,7 @@ class WebDriver {
 
     /**
      * Calling .text() on an element typically returns the text from any elements nested underneath
-     * as well. This method gives easy access to the text contained in just the targeted element.
+     * as well. This method gives easy access to the text contained in just the selected element.
      * @param element   the web element containing the text to be extracted
      * @return          the text from only that element, omitting text in any children elements
      */

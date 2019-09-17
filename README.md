@@ -12,12 +12,12 @@ The project is intended for educational and demonstration purposes, and can serv
 
 Software                |Version        |Description
 ---                     |---            |---
-[Groovy]                |2.5.7          |A powerful and expressive JVM ([Java]) scripting language
+[Groovy]                |2.5.8          |A powerful and expressive JVM ([Java]) scripting language
 [Geb] 	                |3.0.1          |High level WebDriver API
 [Spock]	                |1.3            |[BDD] test/specification runner
-[Gradle]                |5.3.1          |Build tool & dependency management
+[Gradle]                |5.4.1          |Build tool & dependency management
 [Selenium] (WebDriver)  |3.14.159       |Browser automation API
-[ChromeDriver]          |75.0.3770.90   |Selenium driver for Chrome
+[ChromeDriver]          |76.0.3809.126  |Selenium driver for Chrome
 [GeckoDriver]           |0.24.0         |Selenium driver for Mozilla
 [slf4j]                 |1.7.26         |Logging API
 [logback]               |1.2.3          |Logging implementation
@@ -52,13 +52,10 @@ Software                |Version        |Description
   - `git clone git@github.com:treyturner/geb-spock-gradle-grid.git`
 2. Change directory.
   - `cd geb-spock-gradle-grid`
-3. Make drivers executable (Mac OS/Linux)
-  - `find . -name chromedriver -exec chmod +x {} \;`
-  - `find . -name geckodriver -exec chmod +x {} \;`
-4. Run specs.
+3. Run specs.
   - On Windows: `gradlew.bat test`
   - On Mac / Linux: `./gradlew test`
-5. View the results.
+4. View the results.
   - HTML reports are written to `build/reports/tests`
   - JUnit XML results (for [Jenkins]/CI consumption) are written to `build/test-results/tests`
   - Console text logs are written to `build/logs`
@@ -68,20 +65,22 @@ Software                |Version        |Description
 ## Configuration
 You have a few choices on how to run tests.
 - Browser Type
-  - Firefox
   - Chrome
+  - Chrome Headless
+  - Firefox
+  - Firefox Headless
 - Browser Location
   - Local
-  - Remote (Headless)
-    - For continuous integration. [Docker] is ideal for setting up your own [grid]
-    - Once you have your grid setup, edit the URI as appropriate in [WebDriver.groovy]
+  - Grid
+    - For continuous integration. [Docker] is ideal for setting up your own [grid] (local or remote)
+    - If your grid is remote, set a `GRID_URL` environment variable, ie. `http://your.grid.ip.address:4444/wd/hub`
 
 [Docker]: https://www.docker.com/products/docker-toolbox
 [WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L33
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
 
-[Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L8
+[Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L5
 
 ## IntelliJ IDEA
 [IDEA] works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
