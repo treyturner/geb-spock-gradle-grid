@@ -10,6 +10,7 @@ dependencies {
     compile "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
     compile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
     compile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    compile "org.seleniumhq.selenium:selenium-ie-driver:$seleniumVersion"
 
     //geb
     compile "org.gebish:geb-spock:$gebVersion"

@@ -17,7 +17,7 @@ Software                |Version        |Description
 [Spock]	                |1.3            |[BDD] test/specification runner
 [Gradle]                |5.4.1          |Build tool & dependency management
 [Selenium] (WebDriver)  |3.14.159       |Browser automation API
-[ChromeDriver]          |76.0.3809.126  |Selenium driver for Chrome
+[ChromeDriver]          |77.0.3865.40   |Selenium driver for Chrome
 [GeckoDriver]           |0.24.0         |Selenium driver for Mozilla
 [slf4j]                 |1.7.26         |Logging API
 [logback]               |1.2.3          |Logging implementation
@@ -39,8 +39,8 @@ Software                |Version        |Description
 
 ## Requirements
 - [Git]
-- [Java] Development Kit 7+
-- A browser (or a remote [grid]). Tested against [Firefox] v67 and [Chrome] v75
+- [Java] Development Kit 8
+- A browser (or a remote [grid]). Tested against [Firefox] v69 and [Chrome] v77
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -65,22 +65,23 @@ Software                |Version        |Description
 ## Configuration
 You have a few choices on how to run tests.
 - Browser Type
-  - Chrome
-  - Chrome Headless
-  - Firefox
-  - Firefox Headless
+  - chrome
+  - chromeHeadless
+  - firefox
+  - firefoxHeadless
+  - ie
 - Browser Location
-  - Local
-  - Grid
+  - local
+  - grid
     - For continuous integration. [Docker] is ideal for setting up your own [grid] (local or remote)
-    - If your grid is remote, set a `GRID_URL` environment variable, ie. `http://your.grid.ip.address:4444/wd/hub`
+    - If your grid is remote, set `gridUrl` in [WebDriver.groovy] accordingly, or you can set a `GRID_URL` environment variable, ie. `http://your.grid.ip.address:4444/wd/hub`
 
 [Docker]: https://www.docker.com/products/docker-toolbox
 [WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L33
 
-Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure.
+Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure. The browser **type** set in this file applies to IDEA spec executions only, as Gradle sets a value up front. The browser **location** applies to both Gradle and IDEA. 
 
-[Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L5
+[Globals.groovy]: search-engine-exercises/src/main/groovy/search_engine_exercises/Globals.groovy#L6
 
 ## IntelliJ IDEA
 [IDEA] works great with Gradle; just 'Import project from existing sources' and select the root `build.gradle` script.
@@ -103,7 +104,6 @@ There is currently only a very basic Google search in the [Search Engine Exercis
 [spec]: search-engine-exercises/src/test/groovy/search_engine_exercises/spec/google/GoogleSearchSpec.groovy
 [page objects]: search-engine-exercises/src/test/groovy/search_engine_exercises/page/google
 [modules]: search-engine-exercises/src/test/groovy/search_engine_exercises/module/google/GoogleSearchResult.groovy
-
 
 ## Adding new modules
 It's easy to add a new module to start testing a new application.

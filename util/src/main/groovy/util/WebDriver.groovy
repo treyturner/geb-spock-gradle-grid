@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.firefox.FirefoxBinary
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
+import org.openqa.selenium.ie.InternetExplorerDriver
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
@@ -33,16 +34,58 @@ class WebDriver {
     static String gridUrl = System.getenv('GRID_URL') ?: 'http://localhost:4444/wd/hub'
 
     /**
+     * Since driver management is handled by Gradle, IDEA is unaware where to find the drivers
+     * when you right click a spec to execute it. This requires that you first run a Gradle test
+     * task which will automatically download the drivers. We'll then store the driver paths into a
+     * driver.properties file in the project root so that we can later inject them into IDEA
+     * executions.
+     *
+     * @param propertyName  'webdriver.chrome.driver', 'webdriver.gecko.driver', etc.
+     */
+    static void setOrRetrieveDriverPath(String propertyName) {
+        // Create/read a properties file to read/write driver data for local IDEA executions
+        Properties props = new Properties()
+        File propsFile = new File('../driver.properties')
+        if (!propsFile.exists()) { propsFile.createNewFile() }
+        props.load(propsFile.newDataInputStream())
+
+        // Store the property if we have it, read it if we don't
+        if (System.getProperty(propertyName)) {
+            props.setProperty(propertyName, System.getProperty(propertyName))
+            props.store(propsFile.newWriter(), null)
+        } else {
+            if (props.getProperty(propertyName)) {
+                System.setProperty(propertyName, props.getProperty(propertyName))
+            } else {
+                throw new Exception("Couldn't determine driver path. You must run a gradle test task before executing a spec in IDEA.")
+            }
+        }
+    }
+
+    /**
+     * Sets (or gets) the driver locations for Chrome, Firefox, and Internet Explorer
+     */
+    static void setOrRetrieveDriverPaths() {
+        setOrRetrieveDriverPath('webdriver.chrome.driver')
+        setOrRetrieveDriverPath('webdriver.gecko.driver')
+        setOrRetrieveDriverPath('webdriver.ie.driver')
+    }
+
+    /**
      * This method, generally called from within each module's GebConfig.groovy,
      * configures a driver Closure that Geb needs to start a Selenium session.
      * It sets whether the session is local or remote, which browser to use,
-     * and other browser- and platform-specific information such as driver paths.
+     * and other browser- and platform-specific options as needed.
      *
-     * @param browserLocation   'local' or 'remote'
-     * @param browserType       'firefox' and 'chrome' are supported for local/remote, 'phantomjs' is supported for local
+     * @param browserLocation   'local' or 'grid'
+     * @param browserType       'chrome', 'chromeHeadless', 'firefox', and 'firefoxHeadless' are supported
      * @return                  a driver Closure that Geb can use to configure the Selenium session
      */
     static Closure configureDriver(String browser, String location) {
+        // Set driver paths for later use if we have them, fetch them if we don't
+        setOrRetrieveDriverPaths()
+
+        // Make the driver
         Closure driver
         switch (location) {
             case 'local':
@@ -64,8 +107,11 @@ class WebDriver {
                         options.setBinary(binary)
                         driver = { new FirefoxDriver(options) }
                         break
+                    case 'ie':
+                        driver = { new InternetExplorerDriver() }
+                        break
                     default:
-                        assert ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless'].contains(browser), "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for local browser sessions."
+                        assert ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless', 'ie'].contains(browser), "Only chrome, chromeHeadless, firefox, firefoxHeadless and ie are supported for local browser sessions."
                 }
                 break
             case 'grid':
@@ -90,8 +136,11 @@ class WebDriver {
                             options.setHeadless(true)
                             capabilities.merge(options)
                             break
+                        case 'ie':
+                            capabilities = DesiredCapabilities.internetExplorer()
+                            break
                         default:
-                            assert ['chrome', 'chromeHeadless', 'firefox', 'fireHeadless'].contains(browser), "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for remote browser sessions."
+                            assert ['chrome', 'chromeHeadless', 'firefox', 'fireHeadless', 'ie'].contains(browser), "Only chrome, chromeHeadless, firefox, firefoxHeadless, and ie are supported for remote browser sessions."
                     }
                     new RemoteWebDriver(new URL(gridUrl), capabilities)
                 }

@@ -9,7 +9,7 @@ ext {
 
     ext {
         gebVersion = '3.0.1'
-        chromeDriverVersion = '76.0.3809.126'
+        chromeDriverVersion = '77.0.3865.40'
         geckoDriverVersion = '0.24.0'
         ieDriverVersion = '3.14.0'
     }
@@ -50,16 +50,14 @@ drivers.each { driver ->
 test {
     enabled = false
 
-    // Run ALL configured drivers during 'test'
+    // Run ALL configured drivers during 'test' command
     //dependsOn drivers.collect { tasks["${it}Test"]}
 
-    // Run only chrome and firefox during 'test'
+    // Run only chrome and firefox during 'test' command
     dependsOn chromeTest, firefoxTest
 }
 
 tasks.withType(Test) {
+    // Continue executing tests after a failure
     ignoreFailures = true
-    doLast {
-        println "systemProperties: $systemProperties"
-    }
 }
