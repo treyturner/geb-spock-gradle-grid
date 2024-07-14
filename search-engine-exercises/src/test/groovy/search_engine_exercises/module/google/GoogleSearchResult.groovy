@@ -5,13 +5,11 @@ import geb.Module
 class GoogleSearchResult extends Module {
 
     static content = {
-        container
-                { $('div', class:'rc') }
         name
-                { container.find('h3').first() }
+                { find('h3').first() }
         link
-                { container.find('a').first() }
+                { find('a').first() }
         description
-                { container.find('span', class:'st').first() }
+                { find('[lang][data-hveid][data-ved] > div > div:nth-child(2)') }
     }
 }

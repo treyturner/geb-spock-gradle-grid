@@ -20,4 +20,4 @@ gradle-app.setting
 .gradletasknamecache
 
 # Ignore local driver path property files
-driver.properties
+driver-paths.properties

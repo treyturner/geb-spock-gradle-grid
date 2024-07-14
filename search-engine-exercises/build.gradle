@@ -1,50 +1,42 @@
-import org.gradle.internal.os.OperatingSystem
-
 plugins {
-    id "com.github.erdi.webdriver-binaries" version "2.1"
+    id "com.github.erdi.webdriver-binaries" version "3.2"
 }
 
 ext {
     drivers = ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless']
 
     ext {
-        gebVersion = '3.0.1'
-        chromeDriverVersion = '77.0.3865.40'
-        geckoDriverVersion = '0.24.0'
-        ieDriverVersion = '3.14.0'
+        gebVersion = '7.0'
+        chromeDriverVersion = '126.0.6478.126'
+        geckoDriverVersion = '0.33.0'
     }
 }
 
 dependencies {
     //our utility package
-    compile project(':util')
+    implementation project(':util')
 
     //geb
-    compile "org.gebish:geb-spock:$gebVersion"
+    implementation "org.gebish:geb-spock:$gebVersion"
 }
 
 webdriverBinaries {
-    // If you get an error that the version you want isn't found, you may need to submit a PR
-    // to https://github.com/webdriverextensions/webdriverextensions-maven-plugin-repository
+    // Rather than depend on an external resource, we configure
+    // driver URLs ourselves in ../driver-urls.json
     chromedriver {
         version = chromeDriverVersion
-        if (OperatingSystem.current().isWindows()) {
-            architecture = "X86"
-        }
+        fallbackTo32Bit = true
     }
-    geckodriver {
-        version = geckoDriverVersion
-    }
-    iedriverserver {
-        version = ieDriverVersion
-        architecture = 'X86'
-    }
+    geckodriver geckoDriverVersion
+    driverUrlsConfiguration = resources.text.fromFile('../driver-urls.json')
 }
 
 drivers.each { driver ->
-    task "${driver}Test"(type: Test) {
+    tasks.register("${driver}Test", Test, {
+        group JavaBasePlugin.VERIFICATION_GROUP
         systemProperty 'geb.browser', driver
-    }
+        useJUnitPlatform()
+    })
 }
 
 test {
@@ -53,11 +45,11 @@ test {
     // Run ALL configured drivers during 'test' command
     //dependsOn drivers.collect { tasks["${it}Test"]}
 
-    // Run only chrome and firefox during 'test' command
-    dependsOn chromeTest, firefoxTest
+    // Run only chrome during 'test' command
+    dependsOn chromeTest
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     // Continue executing tests after a failure
     ignoreFailures = true
 }

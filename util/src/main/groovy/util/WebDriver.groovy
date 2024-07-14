@@ -5,10 +5,8 @@ import geb.navigator.Navigator
 import groovy.util.logging.Slf4j
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import org.openqa.selenium.firefox.FirefoxBinary
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
-import org.openqa.selenium.ie.InternetExplorerDriver
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
@@ -45,7 +43,7 @@ class WebDriver {
     static void setOrRetrieveDriverPath(String propertyName) {
         // Create/read a properties file to read/write driver data for local IDEA executions
         Properties props = new Properties()
-        File propsFile = new File('../driver.properties')
+        File propsFile = new File('../driver-paths.properties')
         if (!propsFile.exists()) { propsFile.createNewFile() }
         props.load(propsFile.newDataInputStream())
 
@@ -68,7 +66,6 @@ class WebDriver {
     static void setOrRetrieveDriverPaths() {
         setOrRetrieveDriverPath('webdriver.chrome.driver')
         setOrRetrieveDriverPath('webdriver.gecko.driver')
-        setOrRetrieveDriverPath('webdriver.ie.driver')
     }
 
     /**
@@ -101,17 +98,13 @@ class WebDriver {
                         driver = { new FirefoxDriver() }
                         break
                     case 'firefoxHeadless':
-                        FirefoxBinary binary = new FirefoxBinary()
-                        binary.addCommandLineOptions("--headless")
                         FirefoxOptions options = new FirefoxOptions()
-                        options.setBinary(binary)
+                        options.addArguments("--headless")
                         driver = { new FirefoxDriver(options) }
                         break
-                    case 'ie':
-                        driver = { new InternetExplorerDriver() }
-                        break
                     default:
-                        assert ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless', 'ie'].contains(browser), "Only chrome, chromeHeadless, firefox, firefoxHeadless and ie are supported for local browser sessions."
+                        assert ['chrome', 'chromeHeadless', 'firefox', 'firefoxHeadless'].contains(browser),
+                                "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for local browser sessions."
                 }
                 break
             case 'grid':
@@ -136,11 +129,9 @@ class WebDriver {
                             options.setHeadless(true)
                             capabilities.merge(options)
                             break
-                        case 'ie':
-                            capabilities = DesiredCapabilities.internetExplorer()
-                            break
                         default:
-                            assert ['chrome', 'chromeHeadless', 'firefox', 'fireHeadless', 'ie'].contains(browser), "Only chrome, chromeHeadless, firefox, firefoxHeadless, and ie are supported for remote browser sessions."
+                            assert ['chrome', 'chromeHeadless', 'firefox', 'fireHeadless'].contains(browser),
+                                    "Only chrome, chromeHeadless, firefox, and firefoxHeadless are supported for remote browser sessions."
                     }
                     new RemoteWebDriver(new URL(gridUrl), capabilities)
                 }

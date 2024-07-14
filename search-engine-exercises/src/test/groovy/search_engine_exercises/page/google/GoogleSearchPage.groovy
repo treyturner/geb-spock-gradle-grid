@@ -1,6 +1,7 @@
 package search_engine_exercises.page.google
 
 import geb.Page
+import geb.navigator.Navigator
 
 class GoogleSearchPage extends Page {
 
@@ -15,8 +16,17 @@ class GoogleSearchPage extends Page {
 
     static content = {
         searchBox
-                { $('input', name:'q') }
-        searchButton
-                { $('input', name:'btnK').first() }
+                { $(name: 'q') }
+        searchButton (to: GoogleResultsPage)
+                { $('input', name: 'btnK').first() }
+    }
+
+    Navigator search(String text) {
+        searchBox.value(text)
+        sleep 1500
+        interact {
+            moveToElement(searchButton)
+        }
+        searchButton.click()
     }
 }

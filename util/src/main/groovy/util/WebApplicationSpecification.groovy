@@ -9,7 +9,6 @@ class WebApplicationSpecification extends GebReportingSpec {
     @Shared log = LoggerFactory.getLogger(this.getClass())
 
     def setupSpec() {
-        def capabilities = driver.capabilities
-        log.info "$capabilities.browserName $capabilities.version ($capabilities.platform) - $driver.sessionId"
+        with(driver.capabilities) { log.info "${browserName} ${browserVersion} (${platformName})" }
     }
 }

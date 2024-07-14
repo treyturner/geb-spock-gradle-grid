@@ -9,15 +9,15 @@ class GoogleResultsPage extends Page {
 
     static at = {
         title.contains('Google Search')
-        results
+        resultContainer
     }
 
     static content = {
         centerColumn
-                { $('div', id:'center_col') }
+                { $(id: 'center_col') }
         resultContainer
-                { centerColumn.find('div', id:'rso') }
+                { centerColumn.find(id: 'rso') }
         results
-                { resultContainer.find('div', class:'g').collect{ it.module(GoogleSearchResult) } }
+                { resultContainer.find('.g[data-hveid]').collect{ it.module(GoogleSearchResult) } }
     }
 }

@@ -10,18 +10,18 @@ The project is intended for educational and demonstration purposes, and can serv
 
 ## Technologies Integrated
 
-Software                |Version        |Description
----                     |---            |---
-[Groovy]                |2.5.8          |A powerful and expressive JVM ([Java]) scripting language
-[Geb] 	                |3.0.1          |High level WebDriver API
-[Spock]	                |1.3            |[BDD] test/specification runner
-[Gradle]                |5.4.1          |Build tool & dependency management
-[Selenium] (WebDriver)  |3.14.159       |Browser automation API
-[ChromeDriver]          |77.0.3865.40   |Selenium driver for Chrome
-[GeckoDriver]           |0.24.0         |Selenium driver for Mozilla
-[slf4j]                 |1.7.26         |Logging API
-[logback]               |1.2.3          |Logging implementation
-[Spock Reports]         |1.6.2          |Third-party HTML reporting module for Spock
+| Software               | Version        | Description                                               |
+|------------------------|----------------|-----------------------------------------------------------|
+| [Groovy]               | 4.0.22         | A powerful and expressive JVM ([Java]) scripting language |
+| [Geb] 	                | 7.0            | High level WebDriver API                                  |
+| [Spock]	               | 2.3            | [BDD] test/specification runner                           |
+| [Gradle]               | 8.5            | Build tool & dependency management                        |
+| [Selenium] (WebDriver) | 4.22.0         | Browser automation API                                    |
+| [ChromeDriver]         | 126.0.6478.126 | Selenium driver for Chrome                                |
+| [GeckoDriver]          | 0.33.0         | Selenium driver for Mozilla                               |
+| [slf4j]                | 2.0.13         | Logging API                                               |
+| [logback]              | 1.5.6          | Logging implementation                                    |
+| [Spock Reports]        | 2.5.1          | Third-party HTML reporting module for Spock               |
 
 [Groovy]: http://groovy-lang.org/
 [Geb]: http://gebish.org
@@ -39,8 +39,8 @@ Software                |Version        |Description
 
 ## Requirements
 - [Git]
-- [Java] Development Kit 8
-- A browser (or a remote [grid]). Tested against [Firefox] v69 and [Chrome] v77
+- [Java] Development Kit 21
+- A browser (or a remote [grid]). Tested against [Firefox] v128 and [Chrome] v126
 
 [Git]: https://git-scm.com/
 [Java]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -69,7 +69,6 @@ You have a few choices on how to run tests.
   - chromeHeadless
   - firefox
   - firefoxHeadless
-  - ie
 - Browser Location
   - local
   - grid
@@ -77,7 +76,7 @@ You have a few choices on how to run tests.
     - If your grid is remote, set `gridUrl` in [WebDriver.groovy] accordingly, or you can set a `GRID_URL` environment variable, ie. `http://your.grid.ip.address:4444/wd/hub`
 
 [Docker]: https://www.docker.com/products/docker-toolbox
-[WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L33
+[WebDriver.groovy]: util/src/main/groovy/util/WebDriver.groovy#L32
 
 Based on your choices to the above, edit the [Globals.groovy] file for the module you intend to configure. The browser **type** set in this file applies to IDEA spec executions only, as Gradle sets a value up front. The browser **location** applies to both Gradle and IDEA. 
 
